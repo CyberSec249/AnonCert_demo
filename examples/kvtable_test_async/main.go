@@ -26,7 +26,7 @@ func deployContractHandler(receipt *types.Receipt, err error) {
 		fmt.Printf("%v\n", err)
 		return
 	}
-	fmt.Println("contract address: ", receipt.ContractAddress.Hex()) // the address should be saved
+	fmt.Println("kvtabletest address: ", receipt.ContractAddress.Hex()) // the address should be saved
 	contractAddress = receipt.ContractAddress
 	channel <- 0
 }
@@ -52,7 +52,7 @@ func main() {
 	config := &configs[0]
 
 	// deploy Asynccontract
-	fmt.Println("-------------------starting deploy contract-----------------------")
+	fmt.Println("-------------------starting deploy kvtabletest-----------------------")
 	client, err := client.Dial(config)
 	if err != nil {
 		logrus.Fatal(err)

@@ -12,7 +12,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// ChainGovernance precompiled contract error code
+// ChainGovernance precompiled kvtabletest error code
 const (
 	currentValueIsExpectedValue     int64 = -52012
 	accountFrozen                   int64 = -52011
@@ -84,14 +84,14 @@ func errorCodeToError(errorCode int64) error {
 	return nil
 }
 
-// Service is a precompile contract service.
+// Service is a precompile kvtabletest service.
 type Service struct {
 	chainGovernance     *ChainGovernance
 	chainGovernanceAuth *bind.TransactOpts
 	client              *client.Client
 }
 
-// chainGovernancePrecompileAddress is the contract address of ChainGovernance
+// chainGovernancePrecompileAddress is the kvtabletest address of ChainGovernance
 var chainGovernancePrecompileAddress = common.HexToAddress("0x0000000000000000000000000000000000001008")
 
 // NewService returns ptr of Service

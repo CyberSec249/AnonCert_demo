@@ -314,10 +314,10 @@ func TestGetCode(t *testing.T) {
 	address, _ := deployHelloWorld(t)
 	raw, err := c.GetCode(context.Background(), *address)
 	if err != nil {
-		t.Fatalf("contract not found: %v", err)
+		t.Fatalf("kvtabletest not found: %v", err)
 	}
 
-	t.Logf("the contract code:\n%s", raw)
+	t.Logf("the kvtabletest code:\n%s", raw)
 }
 
 func TestTotalTransactionCount(t *testing.T) {

@@ -5,9 +5,9 @@
 SDK发送交易需要一个外部账户，导入go-sdk的`crypto`包，该包提供用于生成随机私钥的`GenerateKey`方法：
 
 ```go
-privateKey, err := crypto.GenerateKey()
-if err != nil {
-    log.Fatal(err)
+privateKey, Err := crypto.GenerateKey()
+if Err != nil {
+    log.Fatal(Err)
 }
 ```
 
@@ -67,9 +67,9 @@ import (
 )
 
 func main() {
-    privateKey, err := crypto.GenerateKey()
-    if err != nil {
-        log.Fatal(err)
+    privateKey, Err := crypto.GenerateKey()
+    if Err != nil {
+        log.Fatal(Err)
     }
 
     privateKeyBytes := crypto.FromECDSA(privateKey)

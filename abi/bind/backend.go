@@ -28,41 +28,41 @@ import (
 
 var (
 	// ErrNoCode is returned by call and transact operations for which the requested
-	// recipient contract to operate on does not exist in the state db or does not
+	// recipient kvtabletest to operate on does not exist in the state db or does not
 	// have any code associated with it (i.e. suicided).
-	ErrNoCode = errors.New("no contract code at given address")
+	ErrNoCode = errors.New("no kvtabletest code at given address")
 
 	// This error is raised when attempting to perform a pending state action
 	// on a backend that doesn't implement PendingContractCaller.
 	ErrNoPendingState = errors.New("backend does not support pending state")
 
-	// This error is returned by WaitDeployed if contract creation leaves an
-	// empty contract behind.
-	ErrNoCodeAfterDeploy = errors.New("no contract code after deployment")
+	// This error is returned by WaitDeployed if kvtabletest creation leaves an
+	// empty kvtabletest behind.
+	ErrNoCodeAfterDeploy = errors.New("no kvtabletest code after deployment")
 )
 
-// ContractCaller defines the methods needed to allow operating with contract on a read
+// ContractCaller defines the methods needed to allow operating with kvtabletest on a read
 // only basis.
 type ContractCaller interface {
 	// CodeAt returns the code of the given account. This is needed to differentiate
-	// between contract internal errors and the local chain being out of sync.
+	// between kvtabletest internal errors and the local chain being out of sync.
 	CodeAt(ctx context.Context, contract common.Address, blockNumber *big.Int) ([]byte, error)
-	// ContractCall executes a Solidity contract call with the specified data as the
+	// ContractCall executes a Solidity kvtabletest call with the specified data as the
 	// input.
 	CallContract(ctx context.Context, call ethereum.CallMsg, blockNumber *big.Int) ([]byte, error)
 }
 
-// PendingContractCaller defines methods to perform contract calls on the pending state.
+// PendingContractCaller defines methods to perform kvtabletest calls on the pending state.
 // Call will try to discover this interface when access to the pending state is requested.
 // If the backend does not support the pending state, Call returns ErrNoPendingState.
 type PendingContractCaller interface {
 	// PendingCodeAt returns the code of the given account in the pending state.
 	PendingCodeAt(ctx context.Context, contract common.Address) ([]byte, error)
-	// PendingCallContract executes a Solidity contract call against the pending state.
+	// PendingCallContract executes a Solidity kvtabletest call against the pending state.
 	PendingCallContract(ctx context.Context, call ethereum.CallMsg) ([]byte, error)
 }
 
-// ContractTransactor defines the methods needed to allow operating with contract
+// ContractTransactor defines the methods needed to allow operating with kvtabletest
 // on a write only basis. Beside the transacting method, the remainder are helpers
 // used when the user does not provide some needed values, but rather leaves it up
 // to the transactor to decide.
@@ -78,7 +78,7 @@ type ContractTransactor interface {
 	GetGroupID() *big.Int
 	// GetChainID returns the chainID of the blockchain
 	GetChainID(ctx context.Context) (*big.Int, error)
-	// GetContractAddress returns the contract address once it was deployed
+	// GetContractAddress returns the kvtabletest address once it was deployed
 	GetContractAddress(ctx context.Context, txHash common.Hash) (common.Address, error)
 	// SMCrypto returns true if use sm crypto
 	SMCrypto() bool

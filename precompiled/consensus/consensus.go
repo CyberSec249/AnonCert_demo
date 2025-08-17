@@ -28,66 +28,66 @@ var (
 // ConsensusABI is the input ABI used to generate the binding from.
 const ConsensusABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"nodeID\",\"type\":\"string\"}],\"name\":\"addObserver\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"nodeID\",\"type\":\"string\"}],\"name\":\"remove\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"nodeID\",\"type\":\"string\"}],\"name\":\"addSealer\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
-// Consensus is an auto generated Go binding around a Solidity contract.
+// Consensus is an auto generated Go binding around a Solidity kvtabletest.
 type Consensus struct {
-	ConsensusCaller     // Read-only binding to the contract
-	ConsensusTransactor // Write-only binding to the contract
-	ConsensusFilterer   // Log filterer for contract events
+	ConsensusCaller     // Read-only binding to the kvtabletest
+	ConsensusTransactor // Write-only binding to the kvtabletest
+	ConsensusFilterer   // Log filterer for kvtabletest events
 }
 
-// ConsensusCaller is an auto generated read-only Go binding around a Solidity contract.
+// ConsensusCaller is an auto generated read-only Go binding around a Solidity kvtabletest.
 type ConsensusCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConsensusTransactor is an auto generated write-only Go binding around a Solidity contract.
+// ConsensusTransactor is an auto generated write-only Go binding around a Solidity kvtabletest.
 type ConsensusTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConsensusFilterer is an auto generated log filtering Go binding around a Solidity contract events.
+// ConsensusFilterer is an auto generated log filtering Go binding around a Solidity kvtabletest events.
 type ConsensusFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConsensusSession is an auto generated Go binding around a Solidity contract,
+// ConsensusSession is an auto generated Go binding around a Solidity kvtabletest,
 // with pre-set call and transact options.
 type ConsensusSession struct {
-	Contract     *Consensus        // Generic contract binding to set the session for
+	Contract     *Consensus        // Generic kvtabletest binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// ConsensusCallerSession is an auto generated read-only Go binding around a Solidity contract,
+// ConsensusCallerSession is an auto generated read-only Go binding around a Solidity kvtabletest,
 // with pre-set call options.
 type ConsensusCallerSession struct {
-	Contract *ConsensusCaller // Generic contract caller binding to set the session for
+	Contract *ConsensusCaller // Generic kvtabletest caller binding to set the session for
 	CallOpts bind.CallOpts    // Call options to use throughout this session
 }
 
-// ConsensusTransactorSession is an auto generated write-only Go binding around a Solidity contract,
+// ConsensusTransactorSession is an auto generated write-only Go binding around a Solidity kvtabletest,
 // with pre-set transact options.
 type ConsensusTransactorSession struct {
-	Contract     *ConsensusTransactor // Generic contract transactor binding to set the session for
+	Contract     *ConsensusTransactor // Generic kvtabletest transactor binding to set the session for
 	TransactOpts bind.TransactOpts    // Transaction auth options to use throughout this session
 }
 
-// ConsensusRaw is an auto generated low-level Go binding around a Solidity contract.
+// ConsensusRaw is an auto generated low-level Go binding around a Solidity kvtabletest.
 type ConsensusRaw struct {
-	Contract *Consensus // Generic contract binding to access the raw methods on
+	Contract *Consensus // Generic kvtabletest binding to access the raw methods on
 }
 
-// ConsensusCallerRaw is an auto generated low-level read-only Go binding around a Solidity contract.
+// ConsensusCallerRaw is an auto generated low-level read-only Go binding around a Solidity kvtabletest.
 type ConsensusCallerRaw struct {
-	Contract *ConsensusCaller // Generic read-only contract binding to access the raw methods on
+	Contract *ConsensusCaller // Generic read-only kvtabletest binding to access the raw methods on
 }
 
-// ConsensusTransactorRaw is an auto generated low-level write-only Go binding around a Solidity contract.
+// ConsensusTransactorRaw is an auto generated low-level write-only Go binding around a Solidity kvtabletest.
 type ConsensusTransactorRaw struct {
-	Contract *ConsensusTransactor // Generic write-only contract binding to access the raw methods on
+	Contract *ConsensusTransactor // Generic write-only kvtabletest binding to access the raw methods on
 }
 
-// NewConsensus creates a new instance of Consensus, bound to a specific deployed contract.
+// NewConsensus creates a new instance of Consensus, bound to a specific deployed kvtabletest.
 func NewConsensus(address common.Address, backend bind.ContractBackend) (*Consensus, error) {
 	contract, err := bindConsensus(address, backend, backend, backend)
 	if err != nil {
@@ -96,7 +96,7 @@ func NewConsensus(address common.Address, backend bind.ContractBackend) (*Consen
 	return &Consensus{ConsensusCaller: ConsensusCaller{contract: contract}, ConsensusTransactor: ConsensusTransactor{contract: contract}, ConsensusFilterer: ConsensusFilterer{contract: contract}}, nil
 }
 
-// NewConsensusCaller creates a new read-only instance of Consensus, bound to a specific deployed contract.
+// NewConsensusCaller creates a new read-only instance of Consensus, bound to a specific deployed kvtabletest.
 func NewConsensusCaller(address common.Address, caller bind.ContractCaller) (*ConsensusCaller, error) {
 	contract, err := bindConsensus(address, caller, nil, nil)
 	if err != nil {
@@ -105,7 +105,7 @@ func NewConsensusCaller(address common.Address, caller bind.ContractCaller) (*Co
 	return &ConsensusCaller{contract: contract}, nil
 }
 
-// NewConsensusTransactor creates a new write-only instance of Consensus, bound to a specific deployed contract.
+// NewConsensusTransactor creates a new write-only instance of Consensus, bound to a specific deployed kvtabletest.
 func NewConsensusTransactor(address common.Address, transactor bind.ContractTransactor) (*ConsensusTransactor, error) {
 	contract, err := bindConsensus(address, nil, transactor, nil)
 	if err != nil {
@@ -114,7 +114,7 @@ func NewConsensusTransactor(address common.Address, transactor bind.ContractTran
 	return &ConsensusTransactor{contract: contract}, nil
 }
 
-// NewConsensusFilterer creates a new log filterer instance of Consensus, bound to a specific deployed contract.
+// NewConsensusFilterer creates a new log filterer instance of Consensus, bound to a specific deployed kvtabletest.
 func NewConsensusFilterer(address common.Address, filterer bind.ContractFilterer) (*ConsensusFilterer, error) {
 	contract, err := bindConsensus(address, nil, nil, filterer)
 	if err != nil {
@@ -123,7 +123,7 @@ func NewConsensusFilterer(address common.Address, filterer bind.ContractFilterer
 	return &ConsensusFilterer{contract: contract}, nil
 }
 
-// bindConsensus binds a generic wrapper to an already deployed contract.
+// bindConsensus binds a generic wrapper to an already deployed kvtabletest.
 func bindConsensus(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
 	parsed, err := abi.JSON(strings.NewReader(ConsensusABI))
 	if err != nil {
@@ -132,7 +132,7 @@ func bindConsensus(address common.Address, caller bind.ContractCaller, transacto
 	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
 }
 
-// Call invokes the (constant) contract method with params as input values and
+// Call invokes the (constant) kvtabletest method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
@@ -140,18 +140,18 @@ func (_Consensus *ConsensusRaw) Call(opts *bind.CallOpts, result interface{}, me
 	return _Consensus.Contract.ConsensusCaller.contract.Call(opts, result, method, params...)
 }
 
-// Transfer initiates a plain transaction to move funds to the contract, calling
+// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 // its default method if one is available.
 func (_Consensus *ConsensusRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.ConsensusTransactor.contract.Transfer(opts)
 }
 
-// Transact invokes the (paid) contract method with params as input values.
+// Transact invokes the (paid) kvtabletest method with params as input values.
 func (_Consensus *ConsensusRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.ConsensusTransactor.contract.Transact(opts, method, params...)
 }
 
-// Call invokes the (constant) contract method with params as input values and
+// Call invokes the (constant) kvtabletest method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
@@ -159,74 +159,74 @@ func (_Consensus *ConsensusCallerRaw) Call(opts *bind.CallOpts, result interface
 	return _Consensus.Contract.contract.Call(opts, result, method, params...)
 }
 
-// Transfer initiates a plain transaction to move funds to the contract, calling
+// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 // its default method if one is available.
 func (_Consensus *ConsensusTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.contract.Transfer(opts)
 }
 
-// Transact invokes the (paid) contract method with params as input values.
+// Transact invokes the (paid) kvtabletest method with params as input values.
 func (_Consensus *ConsensusTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.contract.Transact(opts, method, params...)
 }
 
-// AddObserver is a paid mutator transaction binding the contract method 0x2800efc0.
+// AddObserver is a paid mutator transaction binding the kvtabletest method 0x2800efc0.
 //
 // Solidity: function addObserver(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactor) AddObserver(opts *bind.TransactOpts, nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.contract.Transact(opts, "addObserver", nodeID)
 }
 
-// AddObserver is a paid mutator transaction binding the contract method 0x2800efc0.
+// AddObserver is a paid mutator transaction binding the kvtabletest method 0x2800efc0.
 //
 // Solidity: function addObserver(string nodeID) returns(int256)
 func (_Consensus *ConsensusSession) AddObserver(nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.AddObserver(&_Consensus.TransactOpts, nodeID)
 }
 
-// AddObserver is a paid mutator transaction binding the contract method 0x2800efc0.
+// AddObserver is a paid mutator transaction binding the kvtabletest method 0x2800efc0.
 //
 // Solidity: function addObserver(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactorSession) AddObserver(nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.AddObserver(&_Consensus.TransactOpts, nodeID)
 }
 
-// AddSealer is a paid mutator transaction binding the contract method 0x89152d1f.
+// AddSealer is a paid mutator transaction binding the kvtabletest method 0x89152d1f.
 //
 // Solidity: function addSealer(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactor) AddSealer(opts *bind.TransactOpts, nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.contract.Transact(opts, "addSealer", nodeID)
 }
 
-// AddSealer is a paid mutator transaction binding the contract method 0x89152d1f.
+// AddSealer is a paid mutator transaction binding the kvtabletest method 0x89152d1f.
 //
 // Solidity: function addSealer(string nodeID) returns(int256)
 func (_Consensus *ConsensusSession) AddSealer(nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.AddSealer(&_Consensus.TransactOpts, nodeID)
 }
 
-// AddSealer is a paid mutator transaction binding the contract method 0x89152d1f.
+// AddSealer is a paid mutator transaction binding the kvtabletest method 0x89152d1f.
 //
 // Solidity: function addSealer(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactorSession) AddSealer(nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.AddSealer(&_Consensus.TransactOpts, nodeID)
 }
 
-// Remove is a paid mutator transaction binding the contract method 0x80599e4b.
+// Remove is a paid mutator transaction binding the kvtabletest method 0x80599e4b.
 //
 // Solidity: function remove(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactor) Remove(opts *bind.TransactOpts, nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.contract.Transact(opts, "remove", nodeID)
 }
 
-// Remove is a paid mutator transaction binding the contract method 0x80599e4b.
+// Remove is a paid mutator transaction binding the kvtabletest method 0x80599e4b.
 //
 // Solidity: function remove(string nodeID) returns(int256)
 func (_Consensus *ConsensusSession) Remove(nodeID string) (*types.Transaction, *types.Receipt, error) {
 	return _Consensus.Contract.Remove(&_Consensus.TransactOpts, nodeID)
 }
 
-// Remove is a paid mutator transaction binding the contract method 0x80599e4b.
+// Remove is a paid mutator transaction binding the kvtabletest method 0x80599e4b.
 //
 // Solidity: function remove(string nodeID) returns(int256)
 func (_Consensus *ConsensusTransactorSession) Remove(nodeID string) (*types.Transaction, *types.Receipt, error) {

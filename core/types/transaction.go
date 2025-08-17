@@ -36,7 +36,7 @@ type txdata struct {
 	Price        *big.Int        `json:"gasPrice"   gencodec:"required"`
 	GasLimit     *big.Int        `json:"gas"        gencodec:"required"`
 	BlockLimit   *big.Int        `json:"blocklimit" gencodec:"required"`
-	Recipient    *common.Address `json:"to"         rlp:"nil"` // nil means contract creation
+	Recipient    *common.Address `json:"to"         rlp:"nil"` // nil means kvtabletest creation
 	Amount       *big.Int        `json:"value"      gencodec:"required"`
 	Payload      []byte          `json:"input"      gencodec:"required"`
 	// for fisco bcos 2.0
@@ -73,7 +73,7 @@ func NewTransaction(nonce *big.Int, to common.Address, amount *big.Int, gasLimit
 	return newTransaction(nonce, &to, amount, gasLimit, gasPrice, blockLimit, data, chainId, groupId, extraData, smcrypto)
 }
 
-// NewContractCreation creates a contract transaction
+// NewContractCreation creates a kvtabletest transaction
 func NewContractCreation(nonce *big.Int, amount *big.Int, gasLimit *big.Int, gasPrice *big.Int, blockLimit *big.Int, data []byte, chainId *big.Int, groupId *big.Int, extraData []byte, smcrypto bool) *Transaction {
 	return newTransaction(nonce, nil, amount, gasLimit, gasPrice, blockLimit, data, chainId, groupId, extraData, smcrypto)
 }
@@ -192,7 +192,7 @@ func (tx *Transaction) Nonce() *big.Int    { return tx.data.AccountNonce }
 func (tx *Transaction) CheckNonce() bool   { return true }
 
 // To returns the recipient address of the transaction.
-// It returns nil if the transaction is a contract creation.
+// It returns nil if the transaction is a kvtabletest creation.
 func (tx *Transaction) To() *common.Address {
 	if tx.data.Recipient == nil {
 		return nil
@@ -467,7 +467,7 @@ type newrawtxdata struct {
 	Price        *big.Int `json:"gasPrice"   gencodec:"required"`
 	GasLimit     *big.Int `json:"gas"        gencodec:"required"`
 	BlockLimit   *big.Int `json:"blocklimit" gencodec:"required"`
-	Recipient    string   `json:"to"         rlp:"nil"` // nil means contract creation
+	Recipient    string   `json:"to"         rlp:"nil"` // nil means kvtabletest creation
 	Amount       *big.Int `json:"value"      gencodec:"required"`
 	Payload      string   `json:"input"      gencodec:"required"`
 

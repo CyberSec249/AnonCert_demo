@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// cns precompiled contract error code
+// cns precompiled kvtabletest error code
 const (
 	versionLengthOverflow  int64 = -51201
 	addressAndVersionExist int64 = -51200
@@ -53,7 +53,7 @@ type Info struct {
 	Abi     string `json:"abi"`
 }
 
-// Service is a precompile contract service.
+// Service is a precompile kvtabletest service.
 type Service struct {
 	cns     *Cns
 	cnsAuth *bind.TransactOpts
@@ -62,7 +62,7 @@ type Service struct {
 
 const maxVersionLength = 40
 
-// contract address
+// kvtabletest address
 var cnsPrecompileAddress = common.HexToAddress("0x0000000000000000000000000000000000001004")
 
 // NewCnsService returns ptr of Service
@@ -95,7 +95,7 @@ func (service *Service) SelectByNameAndVersion(name string, version string) (str
 	return cnsName, nil
 }
 
-// GetAddressByContractNameAndVersion returns the contract address.
+// GetAddressByContractNameAndVersion returns the kvtabletest address.
 func (service *Service) GetAddressByContractNameAndVersion(contractName, version string) (common.Address, error) {
 	opts := &bind.CallOpts{From: service.cnsAuth.From}
 	address, err := service.cns.GetContractAddress(opts, contractName, version)
@@ -105,7 +105,7 @@ func (service *Service) GetAddressByContractNameAndVersion(contractName, version
 	return address, nil
 }
 
-// RegisterCns registers a contract for its CNS.
+// RegisterCns registers a kvtabletest for its CNS.
 func (service *Service) RegisterCns(name string, version string, address common.Address, abi string) (int64, error) {
 	if len(version) > maxVersionLength {
 		return precompiled.DefaultErrorCode, fmt.Errorf("version string length exceeds the maximum limit")

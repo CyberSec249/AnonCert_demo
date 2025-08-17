@@ -80,7 +80,7 @@ contract Precompiledbn256 {
             mstore(add(memPtr, 0x60), base)
             mstore(add(memPtr, 0x80), exponent)
             mstore(add(memPtr, 0xa0), modulus)
-            // call the precompiled contract BigModExp (0x05)
+            // call the precompiled kvtabletest BigModExp (0x05)
             let success := call(gas, 0x05, 0x0, memPtr, 0xc0, memPtr, 0x20)
             switch success
                 case 0 {

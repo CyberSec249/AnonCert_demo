@@ -1,0 +1,803 @@
+GOROOT=/home/xdu308/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.23.1.linux-amd64 #gosetup
+GOPATH=/home/xdu308/go #gosetup
+/home/xdu308/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.23.1.linux-amd64/bin/go build -o /home/xdu308/.cache/JetBrains/GoLand2025.1/tmp/GoLand/___go_build_main_go /home/chaoming/go-sdk/cer_performance_test/main.go #gosetup
+/home/xdu308/.cache/JetBrains/GoLand2025.1/tmp/GoLand/___go_build_main_go #gosetup
+2025/07/18 14:54:32 Starting AnonCert Performance Tests...
+2025/07/18 14:54:32 Setting up test environment...
+2025/07/18 14:54:32 Added CA to manager CN=ca_test_one,OU=Acme Co,O=xidian,ST=xi'an,C=CN
+2025/07/18 14:54:32 Created CA: ca_test_one
+2025/07/18 14:54:32 Added CA to manager CN=ca_test_two,OU=Acme Co,O=xidian,ST=xi'an,C=CN
+2025/07/18 14:54:32 Created CA: ca_test_two
+2025/07/18 14:54:32 Added CA to manager CN=ca_test_three,OU=Acme Co,O=xidian,ST=xi'an,C=CN
+2025/07/18 14:54:32 Created CA: ca_test_three
+2025/07/18 14:54:32 Created 10 subjects for testing
+2025/07/18 14:54:32 Testing certificate issuance performance with 100 iterations...
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 497703842459098966896610523006749378708817075447
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 393770355622852908405323741965504689141261393729
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1083861630895390613168872172560044628187346349563
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1316787797616236388875922544699866571762113192245
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 723338622960887608928640223802130204520471448078
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 377183388727124944626485021055142783869757724111
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1000768442276882559390130605327738426649049721773
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 296739228225353959901391989933083752480232519507
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1039405277279643542130650162829463034567666565955
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1413332168576935498232179494939332382175322249019
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 90590841957412203522215593874916207646266164106
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 946232570405117874670639198424845591934969287011
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1250469468103135891217028923834262293966121223474
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 770642887851291149390797518581909406477941047063
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 689701204950451226262298168324337164458838926913
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 769195712985973050650329952261503872918680127893
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1006107661692025041102543428971701651430919164380
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 616324614892370639534768708110700116960202258793
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1140581507699109248866513888290074350049723412385
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 676859187801823500771500792285231825852296029090
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 185324445328929572823416839711053994187069396129
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 955261519518867846805659529436873471758399558205
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 428868784200523705500491529080940497030101570630
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 264680334639806788781401373238848771996496967444
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1335169693643228776242372934225382206318421361201
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 350498528790737002333180346418585812580403551604
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 955024690425520946996233164453244242501348863946
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 91947066482039137024339075617066853507809215763
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 549208878933345209825461457769950468533432883880
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 909849845648629073866376621940000048763179650590
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 81369317952243720888172516692502582353665309106
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 730108132261168711027543773159426022755465358772
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 999977051452055016470928461918735597996238089033
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 54678406019216912275517990958407682172681678124
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1052300235143759535319749950003746412834017913828
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 836447925509509075857724695051957544088447012272
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 135836561991494762409812442103894509994675278348
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 799979951959527791900519712154262494597452784042
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 460672229204207556562340164865273385581940928168
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 419507057980432353932167935726130735783237744390
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 553083240259154308145310510153689805973054988335
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1136973646379392840561543268041370669177939855466
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 132410127366590559205288008547702783951334936518
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 762245407406470482788287388371144186060410313023
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1115481737060852387747620917585442061218352089643
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 917430957700778905125987792032940637038306674577
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 48131076648918070718888387312889625514115523466
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1313604880027292311580014752410646788412124421062
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 915572618351529093671701071152579586384247541602
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1457194043520171917074020750409684967418395992476
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 502794542986136224634935808487975105215754691187
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 704556267256943230149951285158501541772390718569
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 544130997171642259451632730127324881812043212086
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 821631616910192511483118372585421598858771256065
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1334755880226552744181173117518910245246064746867
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 926821403829771335391530292919336194752792963417
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 459100581497754776073515485514226248663237379727
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1345775340396713511303510923112113818353015763739
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 590267688227348434943112681818418056074029412666
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 948734233888943066177628139755087537060984975822
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 268421372327853076240411492749815558473731810420
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 868759508822154208472264589203498625812091772467
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 165769947036430667383034453854455786270556285897
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 146685504821500326628069610677311918730740683060
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 581440532868376320413480306172533785077469745218
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 395708496013215563998630412883584071766937145324
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 39978308115769925787844515945867748953870078296
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 867366823053427658467495071754649049654842696681
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 617283855858131503510939661750306860799516932748
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 118622226832103905501259693147030954016726970570
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1306668718693361216881731200245066664809002553576
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1040408158816917133450065104750679080178077387836
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 628427592693471177307628921992492629583290086895
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1312346018542779789761535149859703066895328573634
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 106015549606372655189641294830159541948066159975
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1087725078104597040454010255548151319896456358778
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 679329865869075214657650869929285186802520667517
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 220276891523235959406116342285774019632790650151
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 853945256156644684327219319893070569273192506319
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 204104130621941874289942754547840118901856139754
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1319444171688215202522401787327103580602864165525
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1076038771678533791796905755071256903966265361357
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 674926480964632416888552298050243866637424247913
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 916081713497710121850652017741848663867483855622
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 958943747551570980299419038921782052310578864471
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1206403124374398013378223687961485223914540005124
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 978557188917557590047250102656066990130372492164
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1096324767196671913371995431835514958106692356208
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 471494852475080927383143658777853549220290847520
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 660862412470888231610855015130212668288038744001
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 257597623380093118934804251884214493304055539493
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 841604788632094593030235803855846701631681786373
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1139578224442901740466421873951257576098568560845
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1356725838617941593327464464770924610742757514718
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1011790119349259938179362603340287389264999359655
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 205534715483801535032549563777983607506424399403
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 935138654957280361952962317262577809214061363932
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1000438905834141163661268042325524663633379081944
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 599920203890646601959512390339439434918762421701
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 41042445353734890739675751586974905505436055261
+2025/07/18 14:54:32 Certificate Issuance Results:
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 53.175191ms
+2025/07/18 14:54:32   Average Time: 531.751µs
+2025/07/18 14:54:32   Min Time: 331.828µs
+2025/07/18 14:54:32   Max Time: 2.143597ms
+2025/07/18 14:54:32   Throughput: 1880.58 ops/sec
+2025/07/18 14:54:32 Testing certificate revocation performance with 100 iterations...
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 288380025099745648686303098127297762579731406225
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1223099016870052671240873847426936996141099368114
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 743094731196925499940727556509407103644509846502
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 902921496100039083977788394081745481872379373234
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 760023084684918831346992575206516319547941726176
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1437407454860670006793330160801244598898157617471
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 678013435031669553398224554823773269870637023096
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1335622507804242576024436218213177719162183455832
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 624066620319108776093351372206036285107325443979
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1196524896871022027986236663208009282131286052989
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 27098568522850914022989549134613236517874813747
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1031336927424217569761301094160325512630287550153
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 259695392044718752296057982357640785804240449455
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 749435888946639656213903984488608078045612313781
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 738933630749308106320741361889522560857660687269
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 238985579928354362731065734258630916381331040762
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 343034428658038411137174239926738845998752353071
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 749864200591360550104106469162938701598936599557
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 700597157484398169383740411510349782051944699431
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 350640141879140713487309007194409994470483892223
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1363781147036322563220444391435406004791698371919
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 867682087661032193418688308821001605226071806857
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 703674994653286354773432643101598064859460551292
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 586215499703920182527933210518726263482829203383
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 484881523198514738216764908031330919215072235056
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 897129515045011337451454257453853268647539550982
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 975743633519903333916779804626633726487224555924
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1077350871237559884513435795892075871345221678081
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1431971349127519765987248105283425655100629368450
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 7106934706480739888800421609952238172412048681
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1401313198938829369325245671483098499170321949958
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 635627126914948468801698952399036959323124026745
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1346846199192203481933787368373295671014598380150
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1036186561658767684108922894699978502736900231313
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1070578122138883010758319062350019630333633339745
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 327466460009995283584483090534719174067572552547
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1145851418447721256332000385537467089035277084409
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1429307238606445879109270283143989058703117922666
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 276294018062598291970542606380425783490197894182
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1447556792325139564138853130537446820583834413125
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 243187699653762966236159218070695940130469697864
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1158327346984787214692100095881151497366908511076
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1084183700016067911074252065642802236924965942311
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 63071011163440734777298095228487352486261486544
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 350392720774699163117646955607761870914779273849
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 680306384838779155296925078319164142867150273301
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 149020414573019112840586998973610198468953423045
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 400967967454136374185437731823513186984572292505
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1034261881363184329740614653902728928416433846744
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 120753834844050485498982439964722762328586024228
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 976576782235881076305466035404420446379147348312
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 357085468337845511119893097358690080520298831046
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1083456923786014368394904404054315309253524937601
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 839912060315265006080776413156439702511354103654
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 292789635087806038349516132665885920464789132929
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 363837456360977903049197346435251276688120887223
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1009580879726261222386284680686049457207990789888
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1149740709690529158217256064669556351288487530013
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1422248794317758081739478801225659267845514663961
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 240981065738503799586919003424009783514438916103
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 268721430322136867934352546336106581179886681845
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 473414596036620077939059197871987605536370317296
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 293587718892693524917033136965877563794369496868
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 340687838717976853490473780994970463615765670191
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 585326714343306491130467250913298775555112025915
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1180450391417093756168760405235585049983968985975
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 427264787727223234792048861402317033045364785963
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 648525063286921768662321461422892574692384816765
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1303468433276339045462586265766989520097765075459
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 871432330099198060239677665805003351457460008942
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 971662101181723227945997227986491506658887487727
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 278358354333063826806485755256360321702300432773
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 850877208550846115068535145912359270839858849088
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 543869075846929778676231186881586719242513885069
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 922532299263114775411937057232050506156381694928
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 369066821125108112740422818665605985510996649158
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 774251214102369629312319213116820025417691971571
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1407942865827670238243058411989076124150017562524
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 358508269956423840811664400766187151406511751946
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 651735372389077494247211574120687995097140880744
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1244529644027286734219756536942667865706188868980
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1270233962959925519864259183325437607776383130174
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 865734435894226508703935856284041912492896620471
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 557039874877604254718158783540920086911680686750
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1413634486980413537864160637201324415934806068520
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1059920040736403228060918551371541397396982710039
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 95742238939450140103700961876515907468914860450
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 156074838281073162364534218901054603315161572096
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1129153492746618798981064959786429208414300401801
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 47228750845405458805418580396906537247959208210
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1197650215768846775006898502663387799587009481366
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 941710859795191007140046491914279950945680417383
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 68349068988961594071651096562503270992152047065
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 13638142525563632931340725115070440438358714607
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 469240780473330799090353640917546740785822458824
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 334925812948241605378138650106380614758922305555
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 520472774527358555723479985511376280450097415084
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 480595218180331538106469999253613467050178872282
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 592841955101228998013138138468335977156812229896
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 666060868099246580158295335744144870123186652076
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1083861630895390613168872172560044628187346349563
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 926821403829771335391530292919336194752792963417
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 459100581497754776073515485514226248663237379727
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1250469468103135891217028923834262293966121223474
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 868759508822154208472264589203498625812091772467
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1096324767196671913371995431835514958106692356208
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1413332168576935498232179494939332382175322249019
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 204104130621941874289942754547840118901856139754
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 730108132261168711027543773159426022755465358772
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 762245407406470482788287388371144186060410313023
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 264680334639806788781401373238848771996496967444
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 799979951959527791900519712154262494597452784042
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1316787797616236388875922544699866571762113192245
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 90590841957412203522215593874916207646266164106
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 497703842459098966896610523006749378708817075447
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 676859187801823500771500792285231825852296029090
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1031336927424217569761301094160325512630287550153
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 393770355622852908405323741965504689141261393729
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 165769947036430667383034453854455786270556285897
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 853945256156644684327219319893070569273192506319
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 205534715483801535032549563777983607506424399403
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 955261519518867846805659529436873471758399558205
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 48131076648918070718888387312889625514115523466
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1139578224442901740466421873951257576098568560845
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 7106934706480739888800421609952238172412048681
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 760023084684918831346992575206516319547941726176
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 749435888946639656213903984488608078045612313781
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 41042445353734890739675751586974905505436055261
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 723338622960887608928640223802130204520471448078
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1319444171688215202522401787327103580602864165525
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1000768442276882559390130605327738426649049721773
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 586215499703920182527933210518726263482829203383
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 909849845648629073866376621940000048763179650590
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 581440532868376320413480306172533785077469745218
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 867366823053427658467495071754649049654842696681
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1196524896871022027986236663208009282131286052989
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 377183388727124944626485021055142783869757724111
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1457194043520171917074020750409684967418395992476
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 553083240259154308145310510153689805973054988335
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 770642887851291149390797518581909406477941047063
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 689701204950451226262298168324337164458838926913
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 343034428658038411137174239926738845998752353071
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1115481737060852387747620917585442061218352089643
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 350640141879140713487309007194409994470483892223
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 471494852475080927383143658777853549220290847520
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 257597623380093118934804251884214493304055539493
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1000438905834141163661268042325524663633379081944
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 774251214102369629312319213116820025417691971571
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 836447925509509075857724695051957544088447012272
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1437407454860670006793330160801244598898157617471
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 288380025099745648686303098127297762579731406225
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 276294018062598291970542606380425783490197894182
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 700597157484398169383740411510349782051944699431
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 327466460009995283584483090534719174067572552547
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 363837456360977903049197346435251276688120887223
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1335169693643228776242372934225382206318421361201
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 617283855858131503510939661750306860799516932748
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 135836561991494762409812442103894509994675278348
+2025/07/18 14:54:32 Certificate revocation failed: 撤销失败，证书已经被撤销
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 340687838717976853490473780994970463615765670191
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 238985579928354362731065734258630916381331040762
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1039405277279643542130650162829463034567666565955
+2025/07/18 14:54:32  revoked certificate for CA: ca_test_one, Serial: 1422248794317758081739478801225659267845514663961
+2025/07/18 14:54:32 Certificate Revocation Results:
+2025/07/18 14:54:32   Total Operations: 62
+2025/07/18 14:54:32   Total Time: 156.129µs
+2025/07/18 14:54:32   Average Time: 2.518µs
+2025/07/18 14:54:32   Min Time: 1.6µs
+2025/07/18 14:54:32   Max Time: 12.851µs
+2025/07/18 14:54:32   Throughput: 397107.52 ops/sec
+2025/07/18 14:54:32 Testing VRF verification performance with 100 iterations...
+2025/07/18 14:54:32 VRF Verification Results:
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 260.277022ms
+2025/07/18 14:54:32   Average Time: 2.60277ms
+2025/07/18 14:54:32   Min Time: 2.19034ms
+2025/07/18 14:54:32   Max Time: 5.072867ms
+2025/07/18 14:54:32   Throughput: 384.21 ops/sec
+2025/07/18 14:54:32 Testing concurrent issuance performance with 100 iterations and 10 goroutines...
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 935486215458535616017860638091012571313286882094
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 225462170028209066393388544255683281787031030247
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 897329561325600056237325791604198016661639756613
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 318862105537042649752180178151920626567583139578
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 83047510724163657005738849557521193781467845633
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1246179593630854401349772665861599707073367124979
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 564342786849287644601783959553140514292832029188
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 800160252084849202387239987581804416316292300425
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 924923153019286859023356478379383269639622233790
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 921555963118633162338890573249797431393363436806
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 729566211224862166699954725973097283151789363929
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 770433563837685116458722370807217098498478013493
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 281401806278210704533129598871172626134611063501
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1355882278414415082091622406556962352388847419597
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 405917312468456714257673797797099568087951787873
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 840883879765194760170031189484089267550803787960
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1448915138679279908935069550347739748058529806904
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 421075362226583955202838504159637151410411944089
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 956763840030195198642243455114079292483829864264
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 197989459139104994990234233660397203215970630973
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 905144171554352888169249830123013906082347503299
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1328810890145731543743166132719084354417233305929
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1094553614714650771816502349607235262915868458314
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 132984024431777351729501374060094506276852467073
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 851526297955391801832017026811797023226363664471
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1404340850704364554100539289995167626925093921358
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1453289236782328127471936158295451450131528173061
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 793314294218730413735707405765616097543395313942
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 449372819177048584226569551490845298084492009368
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 983914867003762903528723470976303690878382483055
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1412635862390329116141634039461135029638469335426
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 606639278526999225533421051214125957614069568948
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1149640557778541278998986542245798714091295200335
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 373153594265290958757072087276037798852555158272
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 104441086222703547523637774867396529901726742738
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 340354267482825329427114875410710533166806327312
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 699582104792800873875466763536616488350152452656
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1111157684629008053270292708898949312430493194015
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1162563832402466078480775195759484832616088331316
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 280620844492734385836447642250529709476254852507
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 566661646726514418988539293837096100249364305344
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 328163106584645112473215860442588050793315059908
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 25697431032733530119292596623055309590054262927
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1121177405769129200861536012338364118816936582671
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 779007530153306262034024765936303863052220961865
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 758486492145710643350758878886970119677055801233
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 308709614801932854359347107149815306749143598323
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 340711181249194263861680367796074514725897332147
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 455285969244970628764822792113482818025631364286
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 297540647932187500113873766620400367551185414541
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 885083199839901382618974101275105681646595191350
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1146710257322095086520425693925021870894467586334
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 605989677046329854599865261754790879565706759672
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 688720872550975862656334612361818614824619835792
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 705944157206634085355088908549475776033095974671
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1441271067446084893394554002018926430839055002397
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1202494283980614659423092066135120089587424520583
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 974950376214594633056471964413024950056278288870
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 838794328960295951887163770069147968988382896307
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1147977594396587107324032737011397843696249790001
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 209485724116858944913320552239603150239776191104
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1183850636136589644613187565802620940233127197661
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 811205309411581049484887376553160374631691320695
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1215586008549952135791770898974777077244589569863
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1082554327754875534148145983353157632389650948420
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 999082922701979795492719134258704047138235906008
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 496321945734942235016084107828141143041768903334
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1243243023873211606208628888022985624125089351336
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 744363772403643223684986780086005285566645296448
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 502260221397897973056173706045938696001123250723
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 224741905140235747451068985845793194189326581319
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 793080310761858971283621613155158444755957000747
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 800202286459740215052499937030591188188811830955
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 915646956910801641649657595452118892426376135727
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 350256140387171279584866727726707151566562923677
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 519922220997855944859738181073622840167728142390
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 895790764332415882440677893063510724436226938288
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 288680404861964503227066526512109417928584732814
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 959489161180827305112667875720471064552472541683
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1443876914393015964445781682293242641200701095193
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 607624524419179076614754936750207897852688963170
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 965752271347519541023956604308692536149121335801
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 574582657973234793543196164879355502047881147428
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 194354528520289106907990618401922219412238868333
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 11054316863510545049370583273749863292266019375
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1322252531875144555643136413164757806215129502007
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 986661705068997443660381781748479848907400384327
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 937216304838273328208785545164065393133187546851
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1413701673205577806356447971359704352369697004493
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1249718387211846479652029541916890570412266687693
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 291936769628701843382408216810911829662629277429
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 641718799858368168372188294544362912144522452944
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1359887400431531948899186525337168990389677826841
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 987616503883247584739382160240749151756531448055
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 124875602857766323699237032173188067446945193545
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 805755592516818991264816223112158933398288809722
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 233621932144601424151554514778214089887876082689
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 1175760711171647818874336060720106047173250985112
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 480227209755452758524970029329410090160786038551
+2025/07/18 14:54:32 CA ca_test_one is issuing certificate
+2025/07/18 14:54:32 issue certificate success for CA: ca_test_one, Serial: 454671935142582306301350712394144475542141610270
+2025/07/18 14:54:32 Concurrent issuance Results:
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 90.783306ms
+2025/07/18 14:54:32   Average Time: 8.077662ms
+2025/07/18 14:54:32   Min Time: 2.125236ms
+2025/07/18 14:54:32   Max Time: 10.540686ms
+2025/07/18 14:54:32   Throughput: 1101.52 ops/sec
+2025/07/18 14:54:32 Testing concurrent verification performance with 100 iterations and 10 goroutines...
+2025/07/18 14:54:32 Concurrent verification Results:
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 98.74212ms
+2025/07/18 14:54:32   Average Time: 4.962305ms
+2025/07/18 14:54:32   Min Time: 2.19941ms
+2025/07/18 14:54:32   Max Time: 9.543931ms
+2025/07/18 14:54:32   Throughput: 1012.74 ops/sec
+2025/07/18 14:54:32
+=== Performance Test Results Summary ===
+2025/07/18 14:54:32
+Operation: Certificate Issuance
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 53.175191ms
+2025/07/18 14:54:32   Average Time: 531.751µs
+2025/07/18 14:54:32   Min Time: 331.828µs
+2025/07/18 14:54:32   Max Time: 2.143597ms
+2025/07/18 14:54:32   Throughput: 1880.58 ops/sec
+2025/07/18 14:54:32   Average Time (ms): 0.53
+2025/07/18 14:54:32
+Operation: Certificate Revocation
+2025/07/18 14:54:32   Total Operations: 62
+2025/07/18 14:54:32   Total Time: 156.129µs
+2025/07/18 14:54:32   Average Time: 2.518µs
+2025/07/18 14:54:32   Min Time: 1.6µs
+2025/07/18 14:54:32   Max Time: 12.851µs
+2025/07/18 14:54:32   Throughput: 397107.52 ops/sec
+2025/07/18 14:54:32   Average Time (ms): 0.00
+2025/07/18 14:54:32
+Operation: VRF Verification
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 260.277022ms
+2025/07/18 14:54:32   Average Time: 2.60277ms
+2025/07/18 14:54:32   Min Time: 2.19034ms
+2025/07/18 14:54:32   Max Time: 5.072867ms
+2025/07/18 14:54:32   Throughput: 384.21 ops/sec
+2025/07/18 14:54:32   Average Time (ms): 2.60
+2025/07/18 14:54:32
+Operation: Concurrent issuance
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 90.783306ms
+2025/07/18 14:54:32   Average Time: 8.077662ms
+2025/07/18 14:54:32   Min Time: 2.125236ms
+2025/07/18 14:54:32   Max Time: 10.540686ms
+2025/07/18 14:54:32   Throughput: 1101.52 ops/sec
+2025/07/18 14:54:32   Average Time (ms): 8.08
+2025/07/18 14:54:32
+Operation: Concurrent verification
+2025/07/18 14:54:32   Total Operations: 100
+2025/07/18 14:54:32   Total Time: 98.74212ms
+2025/07/18 14:54:32   Average Time: 4.962305ms
+2025/07/18 14:54:32   Min Time: 2.19941ms
+2025/07/18 14:54:32   Max Time: 9.543931ms
+2025/07/18 14:54:32   Throughput: 1012.74 ops/sec
+2025/07/18 14:54:32   Average Time (ms): 4.96
+2025/07/18 14:54:32 Performance tests completed successfully!
+
+进程 已完成，退出代码为 0

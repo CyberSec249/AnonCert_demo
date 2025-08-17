@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	// Permission precompiled contract error code
+	// Permission precompiled kvtabletest error code
 	committeePermission     int64 = -51004
 	contractNotExist        int64 = -51003
 	tableNameOverflow       int64 = -51002
@@ -40,7 +40,7 @@ func getErrorMessage(errorCode int64) string {
 	case committeePermission:
 		message = "committee member permission managed by ChainGovernance"
 	case contractNotExist:
-		message = "contract not exist"
+		message = "kvtabletest not exist"
 	case tableNameOverflow:
 		message = "table name overflow"
 	case tableAndAddressNotExist:
@@ -67,14 +67,14 @@ func errorCodeToError(errorCode int64) error {
 	return nil
 }
 
-// Service is a precompile contract service.
+// Service is a precompile kvtabletest service.
 type Service struct {
 	permission     *Permission
 	permissionAuth *bind.TransactOpts
 	client         *client.Client
 }
 
-// PermissionPrecompileAddress is the contract address of Permission
+// PermissionPrecompileAddress is the kvtabletest address of Permission
 var permissionPrecompileAddress common.Address = common.HexToAddress("0x0000000000000000000000000000000000001005")
 
 // NewPermissionService returns ptr of Service
@@ -177,7 +177,7 @@ func (service *Service) ListSysConfigManager() ([]Info, error) {
 	return service.list(SysConfig)
 }
 
-// GrantContractWritePermission grants the permission of writing contract
+// GrantContractWritePermission grants the permission of writing kvtabletest
 func (service *Service) GrantContractWritePermission(contractAddress common.Address, accountAddress common.Address) (int64, error) {
 	_, receipt, err := service.permission.GrantWrite(service.permissionAuth, contractAddress, accountAddress)
 	if err != nil {
@@ -186,7 +186,7 @@ func (service *Service) GrantContractWritePermission(contractAddress common.Addr
 	return parseReturnValue(receipt, "grantWrite")
 }
 
-// RevokeContractWritePermission revokes the permission of writing contract
+// RevokeContractWritePermission revokes the permission of writing kvtabletest
 func (service *Service) RevokeContractWritePermission(contractAddress common.Address, accountAddress common.Address) (int64, error) {
 	_, receipt, err := service.permission.RevokeWrite(service.permissionAuth, contractAddress, accountAddress)
 	if err != nil {
@@ -195,7 +195,7 @@ func (service *Service) RevokeContractWritePermission(contractAddress common.Add
 	return parseReturnValue(receipt, "revokeWrite")
 }
 
-// ListContractWritePermission queries the accounts that have the permission of writing contract
+// ListContractWritePermission queries the accounts that have the permission of writing kvtabletest
 func (service *Service) ListContractWritePermission(contractAddress common.Address) ([]Info, error) {
 	opts := &bind.CallOpts{From: service.permissionAuth.From}
 	permissionInfo, err := service.permission.QueryPermission(opts, contractAddress)

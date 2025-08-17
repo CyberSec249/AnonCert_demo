@@ -41,7 +41,7 @@ var rootCmd = &cobra.Command{
 	Short:   "console is a command line tool for FISCO BCOS 2.2.0",
 	Version: "0.10.0",
 	Long: `console is a Golang client for FISCO BCOS 2.2.0 and it supports the JSON-RPC
-service and the contract operations(e.g. deploying && writing contracts).
+service and the kvtabletest operations(e.g. deploying && writing contracts).
 
 Also, console can be used as a Go package for FISCO BCOS that just simply adding
 the import statement:

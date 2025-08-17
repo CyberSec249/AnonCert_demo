@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
-// Package bind generates Ethereum contract Go bindings.
+// Package bind generates Ethereum kvtabletest Go bindings.
 //
 // Detailed usage document and tutorial available on the go-ethereum Wiki page:
 // https://github.com/ethereum/go-ethereum/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts
@@ -44,13 +44,13 @@ const (
 	LangObjCHeader
 )
 
-// Bind generates a Go wrapper around a contract ABI. This wrapper isn't meant
+// Bind generates a Go wrapper around a kvtabletest ABI. This wrapper isn't meant
 // to be used as is in client code, but rather as an intermediate struct which
 // enforces compile time type safety and naming convention opposed to having to
 // manually maintain hard coded strings that break on runtime.
 func Bind(types []string, abis []string, bytecodes []string, fsigs []map[string]string, pkg string, lang Lang, libs map[string]string, aliases map[string]string, smcrypto bool) (string, error) {
 	var (
-		// contracts is the map of each individual contract requested binding
+		// contracts is the map of each individual kvtabletest requested binding
 		contracts = make(map[string]*tmplContract)
 
 		// structs is the map of all reclared structs shared by passed contracts.
@@ -185,7 +185,7 @@ func Bind(types []string, abis []string, bytecodes []string, fsigs []map[string]
 		for pattern, name := range libs {
 			matched, err := regexp.Match("__\\$"+pattern+"\\$__", []byte(contracts[types[i]].InputBin))
 			if err != nil {
-				log.Error("Could not search for pattern", "pattern", pattern, "contract", contracts[types[i]], "err", err)
+				log.Error("Could not search for pattern", "pattern", pattern, "kvtabletest", contracts[types[i]], "err", err)
 			}
 			if matched {
 				contracts[types[i]].Libraries[pattern] = name
@@ -201,7 +201,7 @@ func Bind(types []string, abis []string, bytecodes []string, fsigs []map[string]
 		_, ok := isLib[types[i]]
 		contracts[types[i]].Library = ok
 	}
-	// Generate the contract template data content and render it
+	// Generate the kvtabletest template data content and render it
 	data := &tmplData{
 		Package:   pkg,
 		Contracts: contracts,

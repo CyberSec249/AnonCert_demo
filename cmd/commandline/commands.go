@@ -604,10 +604,10 @@ var getPendingTxSizeCmd = &cobra.Command{
 
 var getCodeCmd = &cobra.Command{
 	Use:   "getCode",
-	Short: "[contract address]                 Get the contract data from contract address",
-	Long: `Return contract data queried according to contract address.
+	Short: "[kvtabletest address]                 Get the kvtabletest data from kvtabletest address",
+	Long: `Return kvtabletest data queried according to kvtabletest address.
 Arguments:
-[contract address]: contract hash string.
+[kvtabletest address]: kvtabletest hash string.
 
 For example:
 
@@ -763,9 +763,9 @@ func init() {
 	// add transaction command
 	rootCmd.AddCommand(getTransactionByHashCmd, getTransactionByBlockHashAndIndexCmd, getTransactionByBlockNumberAndIndexCmd)
 	rootCmd.AddCommand(getTransactionReceiptCmd, getPendingTransactionsCmd, getPendingTxSizeCmd)
-	// add contract command
+	// add kvtabletest command
 	rootCmd.AddCommand(getCodeCmd, getTotalTransactionCountCmd, getSystemConfigByKeyCmd)
-	// add contract command
+	// add kvtabletest command
 
 	// cobra.OnInitialize(initConfig)
 

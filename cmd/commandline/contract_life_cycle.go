@@ -11,8 +11,8 @@ import (
 
 var freezeContract = &cobra.Command{
 	Use:   "freezeContract",
-	Short: "[contractAddress]                  Freeze the contract",
-	Long: `Freeze the contract.
+	Short: "[contractAddress]                  Freeze the kvtabletest",
+	Long: `Freeze the kvtabletest.
 Arguments:
 	  [contractAddress]:
 
@@ -50,8 +50,8 @@ For more information please refer:
 
 var unfreezeContract = &cobra.Command{
 	Use:   "unfreezeContract",
-	Short: "[contractAddress]                  Unfreeze the contract",
-	Long: `Unfreeze the contract.
+	Short: "[contractAddress]                  Unfreeze the kvtabletest",
+	Long: `Unfreeze the kvtabletest.
 Arguments:
 	  [contractAddress]:
 
@@ -89,8 +89,8 @@ For more information please refer:
 
 var grantContractStatusManager = &cobra.Command{
 	Use:   "grantContractStatusManager",
-	Short: "[contractAddress] [accountAddress] Grant contract authorization to the user",
-	Long: `Grant contract authorization to the user.
+	Short: "[contractAddress] [accountAddress] Grant kvtabletest authorization to the user",
+	Long: `Grant kvtabletest authorization to the user.
 Arguments:
 	  [contractAddress]:
       [accountAddress]:
@@ -138,8 +138,8 @@ For more information please refer:
 
 var getContractStatus = &cobra.Command{
 	Use:   "getContractStatus",
-	Short: "[contractAddress]                  Get the status of the contract",
-	Long: `Get the status of the contract, whether the contract is frozen.
+	Short: "[contractAddress]                  Get the status of the kvtabletest",
+	Long: `Get the status of the kvtabletest, whether the kvtabletest is frozen.
 Arguments:
 	  [contractAddress]:
 
@@ -177,8 +177,8 @@ For more information please refer:
 
 var listContractStatusManager = &cobra.Command{
 	Use:   "listContractStatusManager",
-	Short: "[contractAddress]                  List the authorization of the contract",
-	Long: `List managers that have the permission to manage contract.
+	Short: "[contractAddress]                  List the authorization of the kvtabletest",
+	Long: `List managers that have the permission to manage kvtabletest.
 Arguments:
 	  [contractAddress]:
 

@@ -26,9 +26,9 @@ type tmplData struct {
 	Structs   map[string]*tmplStruct   // Contract struct type definitions
 }
 
-// tmplContract contains the data needed to generate an individual contract binding.
+// tmplContract contains the data needed to generate an individual kvtabletest binding.
 type tmplContract struct {
-	Type        string                 // Type name of the main contract binding
+	Type        string                 // Type name of the main kvtabletest binding
 	InputABI    string                 // JSON ABI used as the input to generate the binding from
 	InputBin    string                 // Optional EVM bytecode used to denetare deploy code from
 	FuncSigs    map[string]string      // Optional map: string signature -> 4-byte signature
@@ -36,8 +36,8 @@ type tmplContract struct {
 	Calls       map[string]*tmplMethod // Contract calls that only read state data
 	Transacts   map[string]*tmplMethod // Contract calls that write state data
 	Events      map[string]*tmplEvent  // Contract events accessors
-	Libraries   map[string]string      // Same as tmplData, but filtered to only keep what the contract needs
-	Library     bool                   // Indicator whether the contract is a library
+	Libraries   map[string]string      // Same as tmplData, but filtered to only keep what the kvtabletest needs
+	Library     bool                   // Indicator whether the kvtabletest is a library
 }
 
 // tmplMethod is a wrapper around an abi.Method that contains a few preprocessed
@@ -78,7 +78,7 @@ var tmplSource = map[Lang]string{
 	LangObjCHeader: tmplSourceObjcHeader,
 }
 
-// tmplSourceGo is the Go source template use to generate the contract binding
+// tmplSourceGo is the Go source template use to generate the kvtabletest binding
 // based on.
 const tmplSourceGo = `
 // Code generated - DO NOT EDIT.
@@ -117,11 +117,11 @@ var (
 	}
 {{end}}
 
-{{range $contract := .Contracts}}
+{{range $kvtabletest := .Contracts}}
 	// {{.Type}}ABI is the input ABI used to generate the binding from.
 	const {{.Type}}ABI = "{{.InputABI}}"
 
-	{{if $contract.FuncSigs}}
+	{{if $kvtabletest.FuncSigs}}
 		// {{.Type}}FuncSigs maps the 4-byte function signature to its string representation.
 		var {{.Type}}FuncSigs = map[string]string{
 			{{range $strsig, $binsig := .FuncSigs}}"{{$binsig}}": "{{$strsig}}",
@@ -133,7 +133,7 @@ var (
 		// {{.Type}}Bin is the compiled bytecode used for deploying new contracts.
 		var {{.Type}}Bin = "0x{{.InputBin}}"
 
-		// Deploy{{.Type}} deploys a new contract, binding an instance of {{.Type}} to it.
+		// Deploy{{.Type}} deploys a new kvtabletest, binding an instance of {{.Type}} to it.
 		func Deploy{{.Type}}(auth *bind.TransactOpts, backend bind.ContractBackend {{range .Constructor.Inputs}}, {{.Name}} {{bindtype .Type $structs}}{{end}}) (common.Address, *types.Transaction, *{{.Type}}, error) {
 		  parsed, err := abi.JSON(strings.NewReader({{.Type}}ABI))
 		  if err != nil {
@@ -141,13 +141,13 @@ var (
 		  }
 		  {{range $pattern, $name := .Libraries}}
 			{{decapitalise $name}}Addr, _, _, _ := Deploy{{capitalise $name}}(auth, backend)
-			{{$contract.Type}}Bin = strings.Replace({{$contract.Type}}Bin, "__${{$pattern}}$__", {{decapitalise $name}}Addr.String()[2:], -1)
+			{{$kvtabletest.Type}}Bin = strings.Replace({{$kvtabletest.Type}}Bin, "__${{$pattern}}$__", {{decapitalise $name}}Addr.String()[2:], -1)
 		  {{end}}
-		  address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex({{.Type}}Bin), backend {{range .Constructor.Inputs}}, {{.Name}}{{end}})
+		  address, tx, kvtabletest, err := bind.DeployContract(auth, parsed, common.FromHex({{.Type}}Bin), backend {{range .Constructor.Inputs}}, {{.Name}}{{end}})
 		  if err != nil {
 		    return common.Address{}, nil, nil, err
 		  }
-		  return address, tx, &{{.Type}}{ {{.Type}}Caller: {{.Type}}Caller{contract: contract}, {{.Type}}Transactor: {{.Type}}Transactor{contract: contract}, {{.Type}}Filterer: {{.Type}}Filterer{contract: contract} }, nil
+		  return address, tx, &{{.Type}}{ {{.Type}}Caller: {{.Type}}Caller{kvtabletest: kvtabletest}, {{.Type}}Transactor: {{.Type}}Transactor{kvtabletest: kvtabletest}, {{.Type}}Filterer: {{.Type}}Filterer{kvtabletest: kvtabletest} }, nil
 		}
 
 		func AsyncDeploy{{.Type}}(auth *bind.TransactOpts, handler func(*types.Receipt, error), backend bind.ContractBackend {{range .Constructor.Inputs}}, {{.Name}} {{bindtype .Type $structs}}{{end}}) (*types.Transaction, error) {
@@ -157,7 +157,7 @@ var (
 		  }
 		  {{range $pattern, $name := .Libraries}}
 			{{decapitalise $name}}Addr, _, _, _ := AsyncDeploy{{capitalise $name}}(auth, backend)
-			{{$contract.Type}}Bin = strings.Replace({{$contract.Type}}Bin, "__${{$pattern}}$__", {{decapitalise $name}}Addr.String()[2:], -1)
+			{{$kvtabletest.Type}}Bin = strings.Replace({{$kvtabletest.Type}}Bin, "__${{$pattern}}$__", {{decapitalise $name}}Addr.String()[2:], -1)
 		  {{end}}
 		  tx, err := bind.AsyncDeployContract(auth, handler, parsed, common.FromHex({{.Type}}Bin), backend {{range .Constructor.Inputs}}, {{.Name}}{{end}})
 		  if err != nil {
@@ -167,102 +167,102 @@ var (
 		}
 	{{end}}
 
-	// {{.Type}} is an auto generated Go binding around a Solidity contract.
+	// {{.Type}} is an auto generated Go binding around a Solidity kvtabletest.
 	type {{.Type}} struct {
-	  {{.Type}}Caller     // Read-only binding to the contract
-	  {{.Type}}Transactor // Write-only binding to the contract
-	  {{.Type}}Filterer   // Log filterer for contract events
+	  {{.Type}}Caller     // Read-only binding to the kvtabletest
+	  {{.Type}}Transactor // Write-only binding to the kvtabletest
+	  {{.Type}}Filterer   // Log filterer for kvtabletest events
 	}
 
-	// {{.Type}}Caller is an auto generated read-only Go binding around a Solidity contract.
+	// {{.Type}}Caller is an auto generated read-only Go binding around a Solidity kvtabletest.
 	type {{.Type}}Caller struct {
-	  contract *bind.BoundContract // Generic contract wrapper for the low level calls
+	  kvtabletest *bind.BoundContract // Generic kvtabletest wrapper for the low level calls
 	}
 
-	// {{.Type}}Transactor is an auto generated write-only Go binding around a Solidity contract.
+	// {{.Type}}Transactor is an auto generated write-only Go binding around a Solidity kvtabletest.
 	type {{.Type}}Transactor struct {
-	  contract *bind.BoundContract // Generic contract wrapper for the low level calls
+	  kvtabletest *bind.BoundContract // Generic kvtabletest wrapper for the low level calls
 	}
 
-	// {{.Type}}Filterer is an auto generated log filtering Go binding around a Solidity contract events.
+	// {{.Type}}Filterer is an auto generated log filtering Go binding around a Solidity kvtabletest events.
 	type {{.Type}}Filterer struct {
-	  contract *bind.BoundContract // Generic contract wrapper for the low level calls
+	  kvtabletest *bind.BoundContract // Generic kvtabletest wrapper for the low level calls
 	}
 
-	// {{.Type}}Session is an auto generated Go binding around a Solidity contract,
+	// {{.Type}}Session is an auto generated Go binding around a Solidity kvtabletest,
 	// with pre-set call and transact options.
 	type {{.Type}}Session struct {
-	  Contract     *{{.Type}}        // Generic contract binding to set the session for
+	  Contract     *{{.Type}}        // Generic kvtabletest binding to set the session for
 	  CallOpts     bind.CallOpts     // Call options to use throughout this session
 	  TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 	}
 
-	// {{.Type}}CallerSession is an auto generated read-only Go binding around a Solidity contract,
+	// {{.Type}}CallerSession is an auto generated read-only Go binding around a Solidity kvtabletest,
 	// with pre-set call options.
 	type {{.Type}}CallerSession struct {
-	  Contract *{{.Type}}Caller // Generic contract caller binding to set the session for
+	  Contract *{{.Type}}Caller // Generic kvtabletest caller binding to set the session for
 	  CallOpts bind.CallOpts    // Call options to use throughout this session
 	}
 
-	// {{.Type}}TransactorSession is an auto generated write-only Go binding around a Solidity contract,
+	// {{.Type}}TransactorSession is an auto generated write-only Go binding around a Solidity kvtabletest,
 	// with pre-set transact options.
 	type {{.Type}}TransactorSession struct {
-	  Contract     *{{.Type}}Transactor // Generic contract transactor binding to set the session for
+	  Contract     *{{.Type}}Transactor // Generic kvtabletest transactor binding to set the session for
 	  TransactOpts bind.TransactOpts    // Transaction auth options to use throughout this session
 	}
 
-	// {{.Type}}Raw is an auto generated low-level Go binding around a Solidity contract.
+	// {{.Type}}Raw is an auto generated low-level Go binding around a Solidity kvtabletest.
 	type {{.Type}}Raw struct {
-	  Contract *{{.Type}} // Generic contract binding to access the raw methods on
+	  Contract *{{.Type}} // Generic kvtabletest binding to access the raw methods on
 	}
 
-	// {{.Type}}CallerRaw is an auto generated low-level read-only Go binding around a Solidity contract.
+	// {{.Type}}CallerRaw is an auto generated low-level read-only Go binding around a Solidity kvtabletest.
 	type {{.Type}}CallerRaw struct {
-		Contract *{{.Type}}Caller // Generic read-only contract binding to access the raw methods on
+		Contract *{{.Type}}Caller // Generic read-only kvtabletest binding to access the raw methods on
 	}
 
-	// {{.Type}}TransactorRaw is an auto generated low-level write-only Go binding around a Solidity contract.
+	// {{.Type}}TransactorRaw is an auto generated low-level write-only Go binding around a Solidity kvtabletest.
 	type {{.Type}}TransactorRaw struct {
-		Contract *{{.Type}}Transactor // Generic write-only contract binding to access the raw methods on
+		Contract *{{.Type}}Transactor // Generic write-only kvtabletest binding to access the raw methods on
 	}
 
-	// New{{.Type}} creates a new instance of {{.Type}}, bound to a specific deployed contract.
+	// New{{.Type}} creates a new instance of {{.Type}}, bound to a specific deployed kvtabletest.
 	func New{{.Type}}(address common.Address, backend bind.ContractBackend) (*{{.Type}}, error) {
-	  contract, err := bind{{.Type}}(address, backend, backend, backend)
+	  kvtabletest, err := bind{{.Type}}(address, backend, backend, backend)
 	  if err != nil {
 	    return nil, err
 	  }
-	  return &{{.Type}}{ {{.Type}}Caller: {{.Type}}Caller{contract: contract}, {{.Type}}Transactor: {{.Type}}Transactor{contract: contract}, {{.Type}}Filterer: {{.Type}}Filterer{contract: contract} }, nil
+	  return &{{.Type}}{ {{.Type}}Caller: {{.Type}}Caller{kvtabletest: kvtabletest}, {{.Type}}Transactor: {{.Type}}Transactor{kvtabletest: kvtabletest}, {{.Type}}Filterer: {{.Type}}Filterer{kvtabletest: kvtabletest} }, nil
 	}
 
-	// New{{.Type}}Caller creates a new read-only instance of {{.Type}}, bound to a specific deployed contract.
+	// New{{.Type}}Caller creates a new read-only instance of {{.Type}}, bound to a specific deployed kvtabletest.
 	func New{{.Type}}Caller(address common.Address, caller bind.ContractCaller) (*{{.Type}}Caller, error) {
-	  contract, err := bind{{.Type}}(address, caller, nil, nil)
+	  kvtabletest, err := bind{{.Type}}(address, caller, nil, nil)
 	  if err != nil {
 	    return nil, err
 	  }
-	  return &{{.Type}}Caller{contract: contract}, nil
+	  return &{{.Type}}Caller{kvtabletest: kvtabletest}, nil
 	}
 
-	// New{{.Type}}Transactor creates a new write-only instance of {{.Type}}, bound to a specific deployed contract.
+	// New{{.Type}}Transactor creates a new write-only instance of {{.Type}}, bound to a specific deployed kvtabletest.
 	func New{{.Type}}Transactor(address common.Address, transactor bind.ContractTransactor) (*{{.Type}}Transactor, error) {
-	  contract, err := bind{{.Type}}(address, nil, transactor, nil)
+	  kvtabletest, err := bind{{.Type}}(address, nil, transactor, nil)
 	  if err != nil {
 	    return nil, err
 	  }
-	  return &{{.Type}}Transactor{contract: contract}, nil
+	  return &{{.Type}}Transactor{kvtabletest: kvtabletest}, nil
 	}
 
-	// New{{.Type}}Filterer creates a new log filterer instance of {{.Type}}, bound to a specific deployed contract.
+	// New{{.Type}}Filterer creates a new log filterer instance of {{.Type}}, bound to a specific deployed kvtabletest.
  	func New{{.Type}}Filterer(address common.Address, filterer bind.ContractFilterer) (*{{.Type}}Filterer, error) {
- 	  contract, err := bind{{.Type}}(address, nil, nil, filterer)
+ 	  kvtabletest, err := bind{{.Type}}(address, nil, nil, filterer)
  	  if err != nil {
  	    return nil, err
  	  }
- 	  return &{{.Type}}Filterer{contract: contract}, nil
+ 	  return &{{.Type}}Filterer{kvtabletest: kvtabletest}, nil
  	}
 
-	// bind{{.Type}} binds a generic wrapper to an already deployed contract.
+	// bind{{.Type}} binds a generic wrapper to an already deployed kvtabletest.
 	func bind{{.Type}}(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
 	  parsed, err := abi.JSON(strings.NewReader({{.Type}}ABI))
 	  if err != nil {
@@ -271,49 +271,49 @@ var (
 	  return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
 	}
 
-	// Call invokes the (constant) contract method with params as input values and
+	// Call invokes the (constant) kvtabletest method with params as input values and
 	// sets the output to result. The result type might be a single field for simple
 	// returns, a slice of interfaces for anonymous returns and a struct for named
 	// returns.
-	func (_{{$contract.Type}} *{{$contract.Type}}Raw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-		return _{{$contract.Type}}.Contract.{{$contract.Type}}Caller.contract.Call(opts, result, method, params...)
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Raw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+		return _{{$kvtabletest.Type}}.Contract.{{$kvtabletest.Type}}Caller.kvtabletest.Call(opts, result, method, params...)
 	}
 
-	// Transfer initiates a plain transaction to move funds to the contract, calling
+	// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 	// its default method if one is available.
-	func (_{{$contract.Type}} *{{$contract.Type}}Raw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
-		return _{{$contract.Type}}.Contract.{{$contract.Type}}Transactor.contract.Transfer(opts)
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Raw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
+		return _{{$kvtabletest.Type}}.Contract.{{$kvtabletest.Type}}Transactor.kvtabletest.Transfer(opts)
 	}
 
-	// Transact invokes the (paid) contract method with params as input values.
-	func (_{{$contract.Type}} *{{$contract.Type}}Raw) TransactWithResult(opts *bind.TransactOpts, result interface{}, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
-		return _{{$contract.Type}}.Contract.{{$contract.Type}}Transactor.contract.TransactWithResult(opts, result, method, params...)
+	// Transact invokes the (paid) kvtabletest method with params as input values.
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Raw) TransactWithResult(opts *bind.TransactOpts, result interface{}, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
+		return _{{$kvtabletest.Type}}.Contract.{{$kvtabletest.Type}}Transactor.kvtabletest.TransactWithResult(opts, result, method, params...)
 	}
 
-	// Call invokes the (constant) contract method with params as input values and
+	// Call invokes the (constant) kvtabletest method with params as input values and
 	// sets the output to result. The result type might be a single field for simple
 	// returns, a slice of interfaces for anonymous returns and a struct for named
 	// returns.
-	func (_{{$contract.Type}} *{{$contract.Type}}CallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-		return _{{$contract.Type}}.Contract.contract.Call(opts, result, method, params...)
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}CallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+		return _{{$kvtabletest.Type}}.Contract.kvtabletest.Call(opts, result, method, params...)
 	}
 
-	// Transfer initiates a plain transaction to move funds to the contract, calling
+	// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 	// its default method if one is available.
-	func (_{{$contract.Type}} *{{$contract.Type}}TransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
-		return _{{$contract.Type}}.Contract.contract.Transfer(opts)
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}TransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
+		return _{{$kvtabletest.Type}}.Contract.kvtabletest.Transfer(opts)
 	}
 
-	// Transact invokes the (paid) contract method with params as input values.
-	func (_{{$contract.Type}} *{{$contract.Type}}TransactorRaw) TransactWithResult(opts *bind.TransactOpts, result interface{}, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
-		return _{{$contract.Type}}.Contract.contract.TransactWithResult(opts, result, method, params...)
+	// Transact invokes the (paid) kvtabletest method with params as input values.
+	func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}TransactorRaw) TransactWithResult(opts *bind.TransactOpts, result interface{}, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
+		return _{{$kvtabletest.Type}}.Contract.kvtabletest.TransactWithResult(opts, result, method, params...)
 	}
 
 	{{range .Calls}}
-		// {{.Normalized.Name}} is a free data retrieval call binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a free data retrieval call binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Caller) {{.Normalized.Name}}(opts *bind.CallOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} error) {
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Caller) {{.Normalized.Name}}(opts *bind.CallOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} error) {
 			{{if .Structured}}ret := new(struct{
 				{{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}}
 				{{end}}
@@ -325,30 +325,30 @@ var (
 				{{range $i, $_ := .Normalized.Outputs}}ret{{$i}},
 				{{end}}
 			}{{end}}{{end}}
-			err := _{{$contract.Type}}.contract.Call(opts, out, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
+			err := _{{$kvtabletest.Type}}.kvtabletest.Call(opts, out, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
 			return {{if .Structured}}*ret,{{else}}{{range $i, $_ := .Normalized.Outputs}}*ret{{$i}},{{end}}{{end}} err
 		}
 
-		// {{.Normalized.Name}} is a free data retrieval call binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a free data retrieval call binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} }, {{else}} {{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}} {{end}} error) {
-		  return _{{$contract.Type}}.Contract.{{.Normalized.Name}}(&_{{$contract.Type}}.CallOpts {{range .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} }, {{else}} {{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}} {{end}} error) {
+		  return _{{$kvtabletest.Type}}.Contract.{{.Normalized.Name}}(&_{{$kvtabletest.Type}}.CallOpts {{range .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 
-		// {{.Normalized.Name}} is a free data retrieval call binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a free data retrieval call binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}CallerSession) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} }, {{else}} {{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}} {{end}} error) {
-		  return _{{$contract.Type}}.Contract.{{.Normalized.Name}}(&_{{$contract.Type}}.CallOpts {{range .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}CallerSession) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} }, {{else}} {{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}} {{end}} error) {
+		  return _{{$kvtabletest.Type}}.Contract.{{.Normalized.Name}}(&_{{$kvtabletest.Type}}.CallOpts {{range .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 	{{end}}
 
 	{{range .Transacts}}
-		// {{.Normalized.Name}} is a paid mutator transaction binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a paid mutator transaction binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Transactor) {{.Normalized.Name}}(opts *bind.TransactOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Transactor) {{.Normalized.Name}}(opts *bind.TransactOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
 			{{if .Structured}}ret := new(struct{
 				{{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}}
 				{{end}}
@@ -360,89 +360,89 @@ var (
 				{{range $i, $_ := .Normalized.Outputs}}ret{{$i}},
 				{{end}}
 			}{{end}}{{end}}
-			transaction, receipt, err := _{{$contract.Type}}.contract.TransactWithResult(opts, out, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
+			transaction, receipt, err := _{{$kvtabletest.Type}}.kvtabletest.TransactWithResult(opts, out, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
 			return {{if .Structured}}*ret,{{else}}{{range $i, $_ := .Normalized.Outputs}}*ret{{$i}},{{end}}{{end}} transaction, receipt, err
 		}
 
-		func (_{{$contract.Type}} *{{$contract.Type}}Transactor) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), opts *bind.TransactOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
-					return _{{$contract.Type}}.contract.AsyncTransact(opts, handler, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Transactor) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), opts *bind.TransactOpts {{range .Normalized.Inputs}}, {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
+					return _{{$kvtabletest.Type}}.kvtabletest.AsyncTransact(opts, handler, "{{.Original.Name}}" {{range .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 
-		// {{.Normalized.Name}} is a paid mutator transaction binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a paid mutator transaction binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
-		  return _{{$contract.Type}}.Contract.{{.Normalized.Name}}(&_{{$contract.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
+		  return _{{$kvtabletest.Type}}.Contract.{{.Normalized.Name}}(&_{{$kvtabletest.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), {{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
-		  return _{{$contract.Type}}.Contract.Async{{.Normalized.Name}}(handler, &_{{$contract.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), {{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
+		  return _{{$kvtabletest.Type}}.Contract.Async{{.Normalized.Name}}(handler, &_{{$kvtabletest.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 
-		// {{.Normalized.Name}} is a paid mutator transaction binding the contract method 0x{{printf "%x" .Original.ID}}.
+		// {{.Normalized.Name}} is a paid mutator transaction binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatmethod .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}TransactorSession) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
-		  return _{{$contract.Type}}.Contract.{{.Normalized.Name}}(&_{{$contract.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}TransactorSession) {{.Normalized.Name}}({{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) ({{if .Structured}}struct{ {{range .Normalized.Outputs}}{{.Name}} {{bindtype .Type $structs}};{{end}} },{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}},{{end}}{{end}} *types.Transaction, *types.Receipt, error) {
+		  return _{{$kvtabletest.Type}}.Contract.{{.Normalized.Name}}(&_{{$kvtabletest.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 
-		func (_{{$contract.Type}} *{{$contract.Type}}TransactorSession) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), {{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
-		  return _{{$contract.Type}}.Contract.Async{{.Normalized.Name}}(handler, &_{{$contract.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}TransactorSession) Async{{.Normalized.Name}}(handler func(*types.Receipt, error), {{range $i, $_ := .Normalized.Inputs}}{{if ne $i 0}},{{end}} {{.Name}} {{bindtype .Type $structs}} {{end}}) (*types.Transaction, error) {
+		  return _{{$kvtabletest.Type}}.Contract.Async{{.Normalized.Name}}(handler, &_{{$kvtabletest.Type}}.TransactOpts {{range $i, $_ := .Normalized.Inputs}}, {{.Name}}{{end}})
 		}
 	{{end}}
 
 	{{range .Events}}
-		// {{$contract.Type}}{{.Normalized.Name}} represents a {{.Normalized.Name}} event raised by the {{$contract.Type}} contract.
-		type {{$contract.Type}}{{.Normalized.Name}} struct { {{range .Normalized.Inputs}}
+		// {{$kvtabletest.Type}}{{.Normalized.Name}} represents a {{.Normalized.Name}} event raised by the {{$kvtabletest.Type}} kvtabletest.
+		type {{$kvtabletest.Type}}{{.Normalized.Name}} struct { {{range .Normalized.Inputs}}
 			{{capitalise .Name}} {{if .Indexed}}{{bindtopictype .Type $structs}}{{else}}{{bindtype .Type $structs}}{{end}}; {{end}}
 			Raw types.Log // Blockchain specific contextual infos
 		}
 
-		// Watch{{.Normalized.Name}} is a free log subscription operation binding the contract event 0x{{printf "%x" .Original.ID}}.
+		// Watch{{.Normalized.Name}} is a free log subscription operation binding the kvtabletest event 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatevent .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Filterer) Watch{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log){{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}} {{bindtype .Type $structs}}{{end}}{{end}}) (string, error) {
-			return _{{$contract.Type}}.contract.WatchLogs(fromBlock, handler, "{{.Original.Name}}"{{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}}{{end}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Filterer) Watch{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log){{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}} {{bindtype .Type $structs}}{{end}}{{end}}) (string, error) {
+			return _{{$kvtabletest.Type}}.kvtabletest.WatchLogs(fromBlock, handler, "{{.Original.Name}}"{{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}}{{end}}{{end}})
 		}
 
-		func (_{{$contract.Type}} *{{$contract.Type}}Filterer) WatchAll{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log)) (string, error) {
-			return _{{$contract.Type}}.contract.WatchLogs(fromBlock, handler, "{{.Original.Name}}")
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Filterer) WatchAll{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log)) (string, error) {
+			return _{{$kvtabletest.Type}}.kvtabletest.WatchLogs(fromBlock, handler, "{{.Original.Name}}")
 		}
 
-		// Parse{{.Normalized.Name}} is a log parse operation binding the contract event 0x{{printf "%x" .Original.ID}}.
+		// Parse{{.Normalized.Name}} is a log parse operation binding the kvtabletest event 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatevent .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Filterer) Parse{{.Normalized.Name}}(log types.Log) (*{{$contract.Type}}{{.Normalized.Name}}, error) {
-			event := new({{$contract.Type}}{{.Normalized.Name}})
-			if err := _{{$contract.Type}}.contract.UnpackLog(event, "{{.Original.Name}}", log); err != nil {
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Filterer) Parse{{.Normalized.Name}}(log types.Log) (*{{$kvtabletest.Type}}{{.Normalized.Name}}, error) {
+			event := new({{$kvtabletest.Type}}{{.Normalized.Name}})
+			if err := _{{$kvtabletest.Type}}.kvtabletest.UnpackLog(event, "{{.Original.Name}}", log); err != nil {
 				return nil, err
 			}
 			return event, nil
 		}
 
-		// Watch{{.Normalized.Name}} is a free log subscription operation binding the contract event 0x{{printf "%x" .Original.ID}}.
+		// Watch{{.Normalized.Name}} is a free log subscription operation binding the kvtabletest event 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatevent .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) Watch{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log){{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}} {{bindtype .Type $structs}}{{end}}{{end}}) (string, error)  {
-			return _{{$contract.Type}}.Contract.Watch{{.Normalized.Name}}(fromBlock, handler {{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}}{{end}}{{end}})
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) Watch{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log){{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}} {{bindtype .Type $structs}}{{end}}{{end}}) (string, error)  {
+			return _{{$kvtabletest.Type}}.Contract.Watch{{.Normalized.Name}}(fromBlock, handler {{range .Normalized.Inputs}}{{if .Indexed}}, {{.Name}}{{end}}{{end}})
 		}
 
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) WatchAll{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log)) (string, error) {
-			return _{{$contract.Type}}.Contract.WatchAll{{.Normalized.Name}}(fromBlock, handler)
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) WatchAll{{.Normalized.Name}}(fromBlock *uint64, handler func(int, []types.Log)) (string, error) {
+			return _{{$kvtabletest.Type}}.Contract.WatchAll{{.Normalized.Name}}(fromBlock, handler)
 		}
 
-		// Parse{{.Normalized.Name}} is a log parse operation binding the contract event 0x{{printf "%x" .Original.ID}}.
+		// Parse{{.Normalized.Name}} is a log parse operation binding the kvtabletest event 0x{{printf "%x" .Original.ID}}.
 		//
 		// Solidity: {{formatevent .Original $structs}}
-		func (_{{$contract.Type}} *{{$contract.Type}}Session) Parse{{.Normalized.Name}}(log types.Log) (*{{$contract.Type}}{{.Normalized.Name}}, error) {
-			return _{{$contract.Type}}.Contract.Parse{{.Normalized.Name}}(log)
+		func (_{{$kvtabletest.Type}} *{{$kvtabletest.Type}}Session) Parse{{.Normalized.Name}}(log types.Log) (*{{$kvtabletest.Type}}{{.Normalized.Name}}, error) {
+			return _{{$kvtabletest.Type}}.Contract.Parse{{.Normalized.Name}}(log)
 		}
 
  	{{end}}
 {{end}}
 `
 
-// tmplSourceJava is the Java source template use to generate the contract binding
+// tmplSourceJava is the Java source template use to generate the kvtabletest binding
 // based on.
 const tmplSourceJava = `
 // This file is an automatically generated Java binding. Do not modify as any
@@ -454,11 +454,11 @@ import org.ethereum.geth.*;
 import java.util.*;
 
 {{$structs := .Structs}}
-{{range $contract := .Contracts}}
+{{range $kvtabletest := .Contracts}}
 {{if not .Library}}public {{end}}class {{.Type}} {
 	// ABI is the input ABI used to generate the binding from.
 	public final static String ABI = "{{.InputABI}}";
-	{{if $contract.FuncSigs}}
+	{{if $kvtabletest.FuncSigs}}
 		// {{.Type}}FuncSigs maps the 4-byte function signature to its string representation.
 		public final static Map<String, String> {{.Type}}FuncSigs;
 		static {
@@ -472,13 +472,13 @@ import java.util.*;
 	// BYTECODE is the compiled bytecode used for deploying new contracts.
 	public final static String BYTECODE = "0x{{.InputBin}}";
 
-	// deploy deploys a new contract, binding an instance of {{.Type}} to it.
+	// deploy deploys a new kvtabletest, binding an instance of {{.Type}} to it.
 	public static {{.Type}} deploy(TransactOpts auth, EthereumClient client{{range .Constructor.Inputs}}, {{bindtype .Type $structs}} {{.Name}}{{end}}) throws Exception {
 		Interfaces args = Geth.newInterfaces({{(len .Constructor.Inputs)}});
 		String bytecode = BYTECODE;
 		{{if .Libraries}}
 
-		// "link" contract to dependent libraries by deploying them first.
+		// "link" kvtabletest to dependent libraries by deploying them first.
 		{{range $pattern, $name := .Libraries}}
 		{{capitalise $name}} {{decapitalise $name}}Inst = {{capitalise $name}}.deploy(auth, client);
 		bytecode = bytecode.replace("__${{$pattern}}$__", {{decapitalise $name}}Inst.Address.getHex().substring(2));
@@ -489,7 +489,7 @@ import java.util.*;
 		return new {{.Type}}(Geth.deployContract(auth, ABI, Geth.decodeFromHex(bytecode), client, args));
 	}
 
-	// Internal constructor used by contract deployment.
+	// Internal constructor used by kvtabletest deployment.
 	private {{.Type}}(BoundContract deployment) {
 		this.Address  = deployment.getAddress();
 		this.Deployer = deployment.getDeployer();
@@ -497,16 +497,16 @@ import java.util.*;
 	}
 	{{end}}
 
-	// Ethereum address where this contract is located at.
+	// Ethereum address where this kvtabletest is located at.
 	public final Address Address;
 
-	// Ethereum transaction in which this contract was deployed (if known!).
+	// Ethereum transaction in which this kvtabletest was deployed (if known!).
 	public final Transaction Deployer;
 
 	// Contract instance bound to a blockchain address.
 	private final BoundContract Contract;
 
-	// Creates a new instance of {{.Type}}, bound to a specific deployed contract.
+	// Creates a new instance of {{.Type}}, bound to a specific deployed kvtabletest.
 	public {{.Type}}(Address address, EthereumClient client) throws Exception {
 		this(Geth.bindContract(address, ABI, client));
 	}
@@ -520,7 +520,7 @@ import java.util.*;
 	}
 	{{end}}
 
-	// {{.Normalized.Name}} is a free data retrieval call binding the contract method 0x{{printf "%x" .Original.ID}}.
+	// {{.Normalized.Name}} is a free data retrieval call binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 	//
 	// Solidity: {{.Original.String}}
 	public {{if gt (len .Normalized.Outputs) 1}}{{capitalise .Normalized.Name}}Results{{else}}{{range .Normalized.Outputs}}{{bindtype .Type $structs}}{{end}}{{end}} {{.Normalized.Name}}(CallOpts opts{{range .Normalized.Inputs}}, {{bindtype .Type $structs}} {{.Name}}{{end}}) throws Exception {
@@ -547,7 +547,7 @@ import java.util.*;
 	{{end}}
 
 	{{range .Transacts}}
-	// {{.Normalized.Name}} is a paid mutator transaction binding the contract method 0x{{printf "%x" .Original.ID}}.
+	// {{.Normalized.Name}} is a paid mutator transaction binding the kvtabletest method 0x{{printf "%x" .Original.ID}}.
 	//
 	// Solidity: {{.Original.String}}
 	public Transaction {{.Normalized.Name}}(TransactOpts opts{{range .Normalized.Inputs}}, {{bindtype .Type $structs}} {{.Name}}{{end}}) throws Exception {
@@ -563,7 +563,7 @@ import java.util.*;
 
 const tmplSourceObjc = `// Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
-{{$structs := .Structs}}{{range $contract := .Contracts}}
+{{$structs := .Structs}}{{range $kvtabletest := .Contracts}}
 #import "{{.Type}}.h"
 #import <FiscoBcosIosSdk/FiscoBcosIosSdk.h>
 
@@ -676,7 +676,7 @@ const tmplSourceObjcHeader = `#import <Foundation/Foundation.h>
 #import <FiscoBcosIosSdk/FiscoBcosIosSdk.h>
 
 NS_ASSUME_NONNULL_BEGIN
-{{$structs := .Structs}}{{range $contract := .Contracts}}{{$contractName := .Type}}
+{{$structs := .Structs}}{{range $kvtabletest := .Contracts}}{{$contractName := .Type}}
 {{range $structs}}// {{.Name}} is an auto generated low-level Go binding around an user-defined struct.
 @interface {{$contractName}}_{{.Name}} : NSObject
 {{range $field := .Fields}}@property (nonatomic, assign) {{$field.Type}} {{$field.Name}};

@@ -187,7 +187,7 @@ func (c *Client) SMCrypto() bool {
 	return c.smCrypto
 }
 
-// CodeAt returns the contract code of the given account.
+// CodeAt returns the kvtabletest code of the given account.
 // The block number can be nil, in which case the code is taken from the latest known block.
 func (c *Client) CodeAt(ctx context.Context, account common.Address, blockNumber *big.Int) ([]byte, error) {
 	return c.apiHandler.GetCode(ctx, c.groupID, account)
@@ -224,7 +224,7 @@ func toFilterArg(q ethereum.FilterQuery) (interface{}, error) {
 
 // Pending State
 
-// PendingCodeAt returns the contract code of the given account in the pending state.
+// PendingCodeAt returns the kvtabletest code of the given account in the pending state.
 func (c *Client) PendingCodeAt(ctx context.Context, account common.Address) ([]byte, error) {
 	return c.apiHandler.GetCode(ctx, c.groupID, account)
 }
@@ -237,15 +237,15 @@ func (c *Client) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNu
 }
 
 // PendingCallContract executes a message call transaction using the EVM.
-// The state seen by the contract call is the pending state.
+// The state seen by the kvtabletest call is the pending state.
 func (c *Client) PendingCallContract(ctx context.Context, msg ethereum.CallMsg) ([]byte, error) {
 	return c.apiHandler.Call(ctx, c.groupID, msg)
 }
 
 // SendTransaction injects a signed transaction into the pending pool for execution.
 //
-// If the transaction was a contract creation use the TransactionReceipt method to get the
-// contract address after the transaction has been mined.
+// If the transaction was a kvtabletest creation use the TransactionReceipt method to get the
+// kvtabletest address after the transaction has been mined.
 func (c *Client) SendTransaction(ctx context.Context, tx *types.Transaction) (*types.Receipt, error) {
 	return c.apiHandler.SendRawTransaction(ctx, c.groupID, tx)
 }
@@ -268,7 +268,6 @@ func (c *Client) SubscribeEventLogs(eventLogParams types.EventLogParams, handler
 func (c *Client) UnSubscribeEventLogs(filterID string) error {
 	return c.apiHandler.UnSubscribeEventLogs(filterID)
 }
-
 
 func (c *Client) SubscribeTopic(topic string, handler func([]byte, *[]byte)) error {
 	return c.apiHandler.SubscribeTopic(topic, handler)
@@ -436,7 +435,7 @@ func (c *Client) GetTransactionReceipt(ctx context.Context, txHash common.Hash) 
 	return c.apiHandler.GetTransactionReceipt(ctx, c.groupID, txHash)
 }
 
-// GetContractAddress returns a contract address according to the transaction hash
+// GetContractAddress returns a kvtabletest address according to the transaction hash
 func (c *Client) GetContractAddress(ctx context.Context, txHash common.Hash) (common.Address, error) {
 	return c.apiHandler.GetContractAddress(ctx, c.groupID, txHash)
 }
@@ -451,7 +450,7 @@ func (c *Client) GetPendingTxSize(ctx context.Context) ([]byte, error) {
 	return c.apiHandler.GetPendingTxSize(ctx, c.groupID)
 }
 
-// GetCode returns the contract code according to the contract address
+// GetCode returns the kvtabletest code according to the kvtabletest address
 func (c *Client) GetCode(ctx context.Context, address common.Address) ([]byte, error) {
 	return c.apiHandler.GetCode(ctx, c.groupID, address)
 }

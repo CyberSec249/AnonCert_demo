@@ -83,7 +83,7 @@ func TransferToJson(code int) (string, error) {
 	} else if code == ObserverList {
 		msg = "the node is already in the observer list"
 	} else if code == ContractNameAndVersionExist {
-		msg = "contract name and version already exist"
+		msg = "kvtabletest name and version already exist"
 	} else if code == VersionExceeds {
 		msg = "version string length exceeds the maximum limit"
 	}

@@ -321,7 +321,7 @@ HelloWorld
         NSLog(@"send tx error : %@", dr.message);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:dr.message preferredStyle:UIAlertControllerStyleAlert];
     }else{
-        NSLog(@"send tx success : %@", dr.receipt.contractAddress);
+        NSLog(@"send tx Success : %@", dr.receipt.contractAddress);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:dr.receipt.contractAddress preferredStyle:UIAlertControllerStyleAlert];
         self.contract = [self.contract initWithAddress:dr.receipt.contractAddress sdk:self.sdk];
     }
@@ -338,7 +338,7 @@ HelloWorld
         NSLog(@"send tx error : %@", result.message);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:result.message preferredStyle:UIAlertControllerStyleAlert];
     }else{
-        NSLog(@"send tx success : %@", result.receipt.blockNumber);
+        NSLog(@"send tx Success : %@", result.receipt.blockNumber);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:result.receipt.blockNumber preferredStyle:UIAlertControllerStyleAlert];
     }
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -353,7 +353,7 @@ HelloWorld
         NSLog(@"send tx error : %@", result.message);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:result.message preferredStyle:UIAlertControllerStyleAlert];
     }else{
-        NSLog(@"send tx success : %@", result.result);
+        NSLog(@"send tx Success : %@", result.result);
         alertController = [UIAlertController alertControllerWithTitle:@"Result" message:result.result preferredStyle:UIAlertControllerStyleAlert];
     }
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];

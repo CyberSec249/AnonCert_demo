@@ -25,7 +25,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// The ABI holds information about a contract's context and available
+// The ABI holds information about a kvtabletest's context and available
 // invokable methods. It will allow you to type check function calls and
 // packs data accordingly.
 type ABI struct {

@@ -28,66 +28,66 @@ var (
 // ConfigABI is the input ABI used to generate the binding from.
 const ConfigABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"setValueByKey\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
-// Config is an auto generated Go binding around a Solidity contract.
+// Config is an auto generated Go binding around a Solidity kvtabletest.
 type Config struct {
-	ConfigCaller     // Read-only binding to the contract
-	ConfigTransactor // Write-only binding to the contract
-	ConfigFilterer   // Log filterer for contract events
+	ConfigCaller     // Read-only binding to the kvtabletest
+	ConfigTransactor // Write-only binding to the kvtabletest
+	ConfigFilterer   // Log filterer for kvtabletest events
 }
 
-// ConfigCaller is an auto generated read-only Go binding around a Solidity contract.
+// ConfigCaller is an auto generated read-only Go binding around a Solidity kvtabletest.
 type ConfigCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConfigTransactor is an auto generated write-only Go binding around a Solidity contract.
+// ConfigTransactor is an auto generated write-only Go binding around a Solidity kvtabletest.
 type ConfigTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConfigFilterer is an auto generated log filtering Go binding around a Solidity contract events.
+// ConfigFilterer is an auto generated log filtering Go binding around a Solidity kvtabletest events.
 type ConfigFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// ConfigSession is an auto generated Go binding around a Solidity contract,
+// ConfigSession is an auto generated Go binding around a Solidity kvtabletest,
 // with pre-set call and transact options.
 type ConfigSession struct {
-	Contract     *Config           // Generic contract binding to set the session for
+	Contract     *Config           // Generic kvtabletest binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// ConfigCallerSession is an auto generated read-only Go binding around a Solidity contract,
+// ConfigCallerSession is an auto generated read-only Go binding around a Solidity kvtabletest,
 // with pre-set call options.
 type ConfigCallerSession struct {
-	Contract *ConfigCaller // Generic contract caller binding to set the session for
+	Contract *ConfigCaller // Generic kvtabletest caller binding to set the session for
 	CallOpts bind.CallOpts // Call options to use throughout this session
 }
 
-// ConfigTransactorSession is an auto generated write-only Go binding around a Solidity contract,
+// ConfigTransactorSession is an auto generated write-only Go binding around a Solidity kvtabletest,
 // with pre-set transact options.
 type ConfigTransactorSession struct {
-	Contract     *ConfigTransactor // Generic contract transactor binding to set the session for
+	Contract     *ConfigTransactor // Generic kvtabletest transactor binding to set the session for
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// ConfigRaw is an auto generated low-level Go binding around a Solidity contract.
+// ConfigRaw is an auto generated low-level Go binding around a Solidity kvtabletest.
 type ConfigRaw struct {
-	Contract *Config // Generic contract binding to access the raw methods on
+	Contract *Config // Generic kvtabletest binding to access the raw methods on
 }
 
-// ConfigCallerRaw is an auto generated low-level read-only Go binding around a Solidity contract.
+// ConfigCallerRaw is an auto generated low-level read-only Go binding around a Solidity kvtabletest.
 type ConfigCallerRaw struct {
-	Contract *ConfigCaller // Generic read-only contract binding to access the raw methods on
+	Contract *ConfigCaller // Generic read-only kvtabletest binding to access the raw methods on
 }
 
-// ConfigTransactorRaw is an auto generated low-level write-only Go binding around a Solidity contract.
+// ConfigTransactorRaw is an auto generated low-level write-only Go binding around a Solidity kvtabletest.
 type ConfigTransactorRaw struct {
-	Contract *ConfigTransactor // Generic write-only contract binding to access the raw methods on
+	Contract *ConfigTransactor // Generic write-only kvtabletest binding to access the raw methods on
 }
 
-// NewConfig creates a new instance of Config, bound to a specific deployed contract.
+// NewConfig creates a new instance of Config, bound to a specific deployed kvtabletest.
 func NewConfig(address common.Address, backend bind.ContractBackend) (*Config, error) {
 	contract, err := bindConfig(address, backend, backend, backend)
 	if err != nil {
@@ -96,7 +96,7 @@ func NewConfig(address common.Address, backend bind.ContractBackend) (*Config, e
 	return &Config{ConfigCaller: ConfigCaller{contract: contract}, ConfigTransactor: ConfigTransactor{contract: contract}, ConfigFilterer: ConfigFilterer{contract: contract}}, nil
 }
 
-// NewConfigCaller creates a new read-only instance of Config, bound to a specific deployed contract.
+// NewConfigCaller creates a new read-only instance of Config, bound to a specific deployed kvtabletest.
 func NewConfigCaller(address common.Address, caller bind.ContractCaller) (*ConfigCaller, error) {
 	contract, err := bindConfig(address, caller, nil, nil)
 	if err != nil {
@@ -105,7 +105,7 @@ func NewConfigCaller(address common.Address, caller bind.ContractCaller) (*Confi
 	return &ConfigCaller{contract: contract}, nil
 }
 
-// NewConfigTransactor creates a new write-only instance of Config, bound to a specific deployed contract.
+// NewConfigTransactor creates a new write-only instance of Config, bound to a specific deployed kvtabletest.
 func NewConfigTransactor(address common.Address, transactor bind.ContractTransactor) (*ConfigTransactor, error) {
 	contract, err := bindConfig(address, nil, transactor, nil)
 	if err != nil {
@@ -114,7 +114,7 @@ func NewConfigTransactor(address common.Address, transactor bind.ContractTransac
 	return &ConfigTransactor{contract: contract}, nil
 }
 
-// NewConfigFilterer creates a new log filterer instance of Config, bound to a specific deployed contract.
+// NewConfigFilterer creates a new log filterer instance of Config, bound to a specific deployed kvtabletest.
 func NewConfigFilterer(address common.Address, filterer bind.ContractFilterer) (*ConfigFilterer, error) {
 	contract, err := bindConfig(address, nil, nil, filterer)
 	if err != nil {
@@ -123,7 +123,7 @@ func NewConfigFilterer(address common.Address, filterer bind.ContractFilterer) (
 	return &ConfigFilterer{contract: contract}, nil
 }
 
-// bindConfig binds a generic wrapper to an already deployed contract.
+// bindConfig binds a generic wrapper to an already deployed kvtabletest.
 func bindConfig(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
 	parsed, err := abi.JSON(strings.NewReader(ConfigABI))
 	if err != nil {
@@ -132,7 +132,7 @@ func bindConfig(address common.Address, caller bind.ContractCaller, transactor b
 	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
 }
 
-// Call invokes the (constant) contract method with params as input values and
+// Call invokes the (constant) kvtabletest method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
@@ -140,18 +140,18 @@ func (_Config *ConfigRaw) Call(opts *bind.CallOpts, result interface{}, method s
 	return _Config.Contract.ConfigCaller.contract.Call(opts, result, method, params...)
 }
 
-// Transfer initiates a plain transaction to move funds to the contract, calling
+// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 // its default method if one is available.
 func (_Config *ConfigRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
 	return _Config.Contract.ConfigTransactor.contract.Transfer(opts)
 }
 
-// Transact invokes the (paid) contract method with params as input values.
+// Transact invokes the (paid) kvtabletest method with params as input values.
 func (_Config *ConfigRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
 	return _Config.Contract.ConfigTransactor.contract.Transact(opts, method, params...)
 }
 
-// Call invokes the (constant) contract method with params as input values and
+// Call invokes the (constant) kvtabletest method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
@@ -159,32 +159,32 @@ func (_Config *ConfigCallerRaw) Call(opts *bind.CallOpts, result interface{}, me
 	return _Config.Contract.contract.Call(opts, result, method, params...)
 }
 
-// Transfer initiates a plain transaction to move funds to the contract, calling
+// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 // its default method if one is available.
 func (_Config *ConfigTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, *types.Receipt, error) {
 	return _Config.Contract.contract.Transfer(opts)
 }
 
-// Transact invokes the (paid) contract method with params as input values.
+// Transact invokes the (paid) kvtabletest method with params as input values.
 func (_Config *ConfigTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
 	return _Config.Contract.contract.Transact(opts, method, params...)
 }
 
-// SetValueByKey is a paid mutator transaction binding the contract method 0xbd291aef.
+// SetValueByKey is a paid mutator transaction binding the kvtabletest method 0xbd291aef.
 //
 // Solidity: function setValueByKey(string key, string value) returns(int256)
 func (_Config *ConfigTransactor) SetValueByKey(opts *bind.TransactOpts, key string, value string) (*types.Transaction, *types.Receipt, error) {
 	return _Config.contract.Transact(opts, "setValueByKey", key, value)
 }
 
-// SetValueByKey is a paid mutator transaction binding the contract method 0xbd291aef.
+// SetValueByKey is a paid mutator transaction binding the kvtabletest method 0xbd291aef.
 //
 // Solidity: function setValueByKey(string key, string value) returns(int256)
 func (_Config *ConfigSession) SetValueByKey(key string, value string) (*types.Transaction, *types.Receipt, error) {
 	return _Config.Contract.SetValueByKey(&_Config.TransactOpts, key, value)
 }
 
-// SetValueByKey is a paid mutator transaction binding the contract method 0xbd291aef.
+// SetValueByKey is a paid mutator transaction binding the kvtabletest method 0xbd291aef.
 //
 // Solidity: function setValueByKey(string key, string value) returns(int256)
 func (_Config *ConfigTransactorSession) SetValueByKey(key string, value string) (*types.Transaction, *types.Receipt, error) {

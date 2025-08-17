@@ -12,7 +12,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// consensus precompiled contract error code
+// consensus precompiled kvtabletest error code
 const (
 	lastSealer    int64 = -51101
 	invalidNodeID int64 = -51100
@@ -46,14 +46,14 @@ func errorCodeToError(errorCode int64) error {
 	return nil
 }
 
-// Service is a precompile contract service.
+// Service is a precompile kvtabletest service.
 type Service struct {
 	consensus     *Consensus
 	consensusAuth *bind.TransactOpts
 	client        *client.Client
 }
 
-// contract address
+// kvtabletest address
 var consensusPrecompileAddress = common.HexToAddress("0x0000000000000000000000000000000000001003")
 
 // NewConsensusService returns ptr of ConsensusService

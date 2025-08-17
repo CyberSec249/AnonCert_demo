@@ -31,12 +31,12 @@ type ContractProxy struct {
 }
 
 // CodeAt returns the code of the given account. This is needed to differentiate
-// between contract internal errors and the local chain being out of sync.
+// between kvtabletest internal errors and the local chain being out of sync.
 func (c *ContractProxy) CodeAt(ctx context.Context, contract common.Address, blockNumber *big.Int) ([]byte, error) {
 	return []byte{}, nil
 }
 
-// ContractCall executes a Solidity contract call with the specified data as the
+// ContractCall executes a Solidity kvtabletest call with the specified data as the
 // input.
 func (c *ContractProxy) CallContract(ctx context.Context, call ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	return c.Call(ctx, c.groupID, call)
@@ -118,7 +118,7 @@ func (c *ContractProxy) GetChainID(ctx context.Context) (*big.Int, error) {
 	return c.chainID, nil
 }
 
-// GetContractAddress returns the contract address once it was deployed
+// GetContractAddress returns the kvtabletest address once it was deployed
 func (c *ContractProxy) GetContractAddress(ctx context.Context, txHash common.Hash) (common.Address, error) {
 	panic("implement me")
 }

@@ -149,7 +149,7 @@ func (sdk *BcosSDK) BuildSDKWithParam(keyFile string, callback PostCallback, gro
 	return &BuildSDKResult{true, "Init success"}
 }
 
-// DeployContract is a function to deploy a FISCO BCOS smart contract
+// DeployContract is a function to deploy a FISCO BCOS smart kvtabletest
 // Return receipt
 func (sdk *BcosSDK) DeployContract(contractAbi string, contractBin string, params string) *ReceiptResult {
 	runtime.GC()
@@ -167,7 +167,7 @@ func (sdk *BcosSDK) DeployContract(contractAbi string, contractBin string, param
 	return toReceiptResult(receipt, err)
 }
 
-// SendTransaction is a function to send an transaction to call smart contract function.
+// SendTransaction is a function to send an transaction to call smart kvtabletest function.
 // return receipt
 func (sdk *BcosSDK) SendTransaction(contractAbi string, address string, method string, params string) *ReceiptResult {
 	runtime.GC()
@@ -188,7 +188,7 @@ func (sdk *BcosSDK) SendTransaction(contractAbi string, address string, method s
 	return receiptResult
 }
 
-// Call is a function to call a smart contract function without sending transaction
+// Call is a function to call a smart kvtabletest function without sending transaction
 // return CallResult
 func (sdk *BcosSDK) Call(abiContract string, address string, method string, params string, outputNum int) *CallResult {
 	runtime.GC()
@@ -211,7 +211,7 @@ func (sdk *BcosSDK) Call(abiContract string, address string, method string, para
 		var result = make([]interface{}, outputNum)
 		err = boundContract.Call(sdk.GetCallOpts(), &result, method, goParams...)
 		if err != nil {
-			return toCallResult("", errors.New("call contract error: "+err.Error()))
+			return toCallResult("", errors.New("call kvtabletest error: "+err.Error()))
 		}
 		resultBytes, err := json.Marshal(result)
 		if err != nil {
@@ -223,7 +223,7 @@ func (sdk *BcosSDK) Call(abiContract string, address string, method string, para
 		var result interface{}
 		err = boundContract.Call(sdk.GetCallOpts(), &result, method, goParams...)
 		if err != nil {
-			return toCallResult("", errors.New("call contract error: "+err.Error()))
+			return toCallResult("", errors.New("call kvtabletest error: "+err.Error()))
 		}
 		resultBytes, err := json.Marshal(result)
 		if err != nil {

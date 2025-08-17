@@ -26,7 +26,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop/sub/subscriber.go [endpoint] [topic]
   > go run examples/amop/sub/subscriber.go 127.0.0.1:20201 hello
 
-    Subscriber success
+    Subscriber Success
     2020/08/11 21:21:50 received: hello, FISCO BCOS, I am unicast publisher! 0
     2020/08/11 21:21:52 received: hello, FISCO BCOS, I am unicast publisher! 1
     2020/08/11 21:21:54 received: hello, FISCO BCOS, I am unicast publisher! 2
@@ -55,7 +55,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop/sub/subscriber.go [endpoint] [topic]
   > go run examples/amop/sub/subscriber.go 127.0.0.1:20201 hello
 
-    Subscriber success
+    Subscriber Success
     2020/08/11 21:23:54 received: hello, FISCO BCOS, I am broadcast publisher! 0
     2020/08/11 21:23:56 received: hello, FISCO BCOS, I am broadcast publisher! 1
     2020/08/11 21:23:58 received: hello, FISCO BCOS, I am broadcast publisher! 2
@@ -84,7 +84,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop_auth/sub/subscriber.go [endpoint] [topic]
   > go run examples/amop_auth/sub/subscriber.go 127.0.0.1:20201 hello
 
-  Subscriber success
+  Subscriber Success
   2020/08/27 15:59:33 received: Hi, FISCO BCOS! 0
   2020/08/27 15:59:35 received: Hi, FISCO BCOS! 1
   2020/08/27 15:59:37 received: Hi, FISCO BCOS! 2
@@ -97,7 +97,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop_auth/unicast_pub/publisher.go [endpoint] [topic]
   > go run examples/amop_auth/unicast_pub/publisher.go 127.0.0.1:20200 hello
 
-  publish topic success
+  publish topic Success
   2020/08/27 15:59:33 publish message: Hi, FISCO BCOS! 0
   2020/08/27 15:59:35 publish message: Hi, FISCO BCOS! 1
   2020/08/27 15:59:37 publish message: Hi, FISCO BCOS! 2
@@ -114,7 +114,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop_auth/sub/subscriber.go [endpoint] [topic]
   > go run examples/amop_auth/sub/subscriber.go 127.0.0.1:20201 hello
 
-  Subscriber success
+  Subscriber Success
   2020/08/27 16:02:39 received: Hi, FISCO BCOS! 1
   2020/08/27 16:02:41 received: Hi, FISCO BCOS! 2
   2020/08/27 16:02:43 received: Hi, FISCO BCOS! 3
@@ -127,7 +127,7 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
   # go run examples/amop_auth/broadcast_pub/publisher.go [endpoint] [topic] [publickKey...]
   > go run examples/amop_auth/broadcast_pub/publisher.go 127.0.0.1:20200 hello
 
-  publish topic success
+  publish topic Success
   2020/08/27 16:02:37 publish message: Hi, FISCO BCOS! 0
   2020/08/27 16:02:39 publish message: Hi, FISCO BCOS! 1
   2020/08/27 16:02:41 publish message: Hi, FISCO BCOS! 2
@@ -157,8 +157,8 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
 ```shell
 > go run examples/kvtable_test_sync/main.go
 
-  -------------------starting deploy contract-----------------------
-  contract address:  0x2b4173B18Fd0f88Fb5525f1b657e51c18aBf3D82
+  -------------------starting deploy kvtabletest-----------------------
+  kvtabletest address:  0x2b4173B18Fd0f88Fb5525f1b657e51c18aBf3D82
   transaction hash:  0xee1b9ddc38f15ec0cac55c7ee3edcc4c8a497b9f22db421dca8206febc8a1f33
 
   -------------------starting invoke Set to insert info-----------------------
@@ -178,9 +178,9 @@ AMOP（Advanced Messages Onchain Protocol）即链上信使协议，旨在为联
 ```shell
 > go run examples/kvtable_test_async/main.go
 
-  -------------------starting deploy contract-----------------------
+  -------------------starting deploy kvtabletest-----------------------
   transaction hash:  0x39ad5ed85f6493a4c73248fe65196a69316bbbfedebe87bbd5e108a703b74419
-  contract address:  0x974f2B3f93a6eDeB1DCB915Fa58b6931E3229F13
+  kvtabletest address:  0x974f2B3f93a6eDeB1DCB915Fa58b6931E3229F13
 
   -------------------starting invoke Set to insert info-----------------------
   tx sent: 0x161835e0a379a085b1cd4f046b9668745ff09815142608e32dff6aa75dc26274

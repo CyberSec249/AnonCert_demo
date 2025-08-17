@@ -129,8 +129,8 @@ For more information please refer:
 
 var grantDeployAndCreateManager = &cobra.Command{
 	Use:   "grantDeployAndCreateManager",
-	Short: "[accountAddress]                   Grant permission for deploy contract and create user table by address",
-	Long: `Grant permission for deploy contract and create user table by address.
+	Short: "[accountAddress]                   Grant permission for deploy kvtabletest and create user table by address",
+	Long: `Grant permission for deploy kvtabletest and create user table by address.
 Arguments:
           [accountAddress]: string
 
@@ -168,8 +168,8 @@ For more information please refer:
 
 var revokeDeployAndCreateManager = &cobra.Command{
 	Use:   "revokeDeployAndCreateManager",
-	Short: "[accountAddress]                   Revoke permission for deploy contract and create user table by address",
-	Long: `Revoke permission for deploy contract and create user table by address.
+	Short: "[accountAddress]                   Revoke permission for deploy kvtabletest and create user table by address",
+	Long: `Revoke permission for deploy kvtabletest and create user table by address.
 Arguments:
          [accountAddress]: string
 
@@ -207,8 +207,8 @@ For more information please refer:
 
 var listDeployAndCreateManager = &cobra.Command{
 	Use:   "listDeployAndCreateManager",
-	Short: "                                   Query permission information for deploy contract and create user table",
-	Long: `Query permission information for deploy contract and create user table.
+	Short: "                                   Query permission information for deploy kvtabletest and create user table",
+	Long: `Query permission information for deploy kvtabletest and create user table.
 For example:
 
     [listDeployAndCreateManager]
@@ -687,7 +687,7 @@ For more information please refer:
 
 var grantContractWritePermission = &cobra.Command{
 	Use:   "grantContractWritePermission",
-	Short: "[contractAddress] [accountAddress] Grant permission for write contract by address",
+	Short: "[contractAddress] [accountAddress] Grant permission for write kvtabletest by address",
 	Long: `Grant permission for system configuration by address.
 Arguments:
           [contractAddress]: string
@@ -729,8 +729,8 @@ For example:
 
 var revokeContractWritePermission = &cobra.Command{
 	Use:   "revokeContractWritePermission",
-	Short: "[contractAddress] [accountAddress] Revoke permission for write contract by address",
-	Long: `Revoke permission for write contract by address.
+	Short: "[contractAddress] [accountAddress] Revoke permission for write kvtabletest by address",
+	Long: `Revoke permission for write kvtabletest by address.
 Arguments:
           [contractAddress]: string
           [accountAddress]: string
@@ -771,8 +771,8 @@ For example:
 
 var listContractWritePermission = &cobra.Command{
 	Use:   "listContractWritePermission",
-	Short: "[contractAddress]                  Query permission for write contract by address",
-	Long: `Query permission for write contract by address.
+	Short: "[contractAddress]                  Query permission for write kvtabletest by address",
+	Long: `Query permission for write kvtabletest by address.
 Arguments:
           [contractAddress]: string
 
@@ -809,7 +809,7 @@ For example:
 func init() {
 	// the permission of manager user table
 	rootCmd.AddCommand(grantUserTableManager, revokeUserTableManager, listUserTableManager)
-	// the permission of deploy contract and create user table
+	// the permission of deploy kvtabletest and create user table
 	rootCmd.AddCommand(grantDeployAndCreateManager, revokeDeployAndCreateManager, listDeployAndCreateManager)
 	// the permission of blockchain manager
 	rootCmd.AddCommand(grantPermissionManager, revokePermissionManager, listPermissionManager)
@@ -819,6 +819,6 @@ func init() {
 	rootCmd.AddCommand(grantCNSManager, revokeCNSManager, listCNSManager)
 	// the permission of system configuration
 	rootCmd.AddCommand(grantSysConfigManager, revokeSysConfigManager, listSysConfigManager)
-	// the permission of writing contract
+	// the permission of writing kvtabletest
 	rootCmd.AddCommand(grantContractWritePermission, revokeContractWritePermission, listContractWritePermission)
 }

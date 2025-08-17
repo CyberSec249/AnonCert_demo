@@ -47,11 +47,11 @@ func getService(t *testing.T) {
 
 func deployHelloWorldContract(t *testing.T) {
 	c := getClient(t)
-	address, tx, instance, err := helloworld.DeployHelloWorld(c.GetTransactOpts(), c) // deploy contract
+	address, tx, instance, err := helloworld.DeployHelloWorld(c.GetTransactOpts(), c) // deploy kvtabletest
 	if err != nil {
-		t.Fatalf("deploy HelloWorld contract failed：%v", err)
+		t.Fatalf("deploy HelloWorld kvtabletest failed：%v", err)
 	}
-	t.Logf("the address of contract: %v", address.Hex())
+	t.Logf("the address of kvtabletest: %v", address.Hex())
 	t.Logf("the hash of transaction: %v", tx.Hash().Hex())
 	_ = instance
 	contractAddress = address.Hex()

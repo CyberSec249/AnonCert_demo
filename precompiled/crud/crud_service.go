@@ -15,7 +15,7 @@ import (
 const (
 	TableKeyMaxLength int = 255
 
-	//crud precompiled contract error code
+	//crud precompiled kvtabletest error code
 	conditionOperationUndefined int64 = -51502
 	parseConditionError         int64 = -51501
 	parseEntryError             int64 = -51500
@@ -51,7 +51,7 @@ func errorCodeToError(errorCode int64) error {
 	return nil
 }
 
-// CRUDService is a precompile contract service.
+// CRUDService is a precompile kvtabletest service.
 type Service struct {
 	crud         *Crud
 	tableFactory *TableFactory
@@ -59,10 +59,10 @@ type Service struct {
 	client       *client.Client
 }
 
-// TableFactoryPrecompileAddress is the contract address of TableFactory
+// TableFactoryPrecompileAddress is the kvtabletest address of TableFactory
 var TableFactoryPrecompileAddress = common.HexToAddress("0x0000000000000000000000000000000000001001")
 
-// CRUDPrecompileAddress is the contract address of CRUD
+// CRUDPrecompileAddress is the kvtabletest address of CRUD
 var CRUDPrecompileAddress = common.HexToAddress("0x0000000000000000000000000000000000001002")
 
 // NewCRUDService returns ptr of CRUDService

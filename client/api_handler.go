@@ -104,8 +104,8 @@ func (api *APIHandler) Call(ctx context.Context, groupID int, msg ethereum.CallM
 
 // SendRawTransaction injects a signed transaction into the pending pool for execution.
 //
-// If the transaction was a contract creation use the TransactionReceipt method to get the
-// contract address after the transaction has been mined.
+// If the transaction was a kvtabletest creation use the TransactionReceipt method to get the
+// kvtabletest address after the transaction has been mined.
 func (api *APIHandler) SendRawTransaction(ctx context.Context, groupID int, tx *types.Transaction) (*types.Receipt, error) {
 	data, err := rlp.EncodeToBytes(tx)
 	if err != nil {
@@ -534,7 +534,7 @@ func (api *APIHandler) GetTransactionReceipt(ctx context.Context, groupID int, t
 	return raw, err
 }
 
-// GetContractAddress returns a contract address according to the transaction hash
+// GetContractAddress returns a kvtabletest address according to the transaction hash
 func (api *APIHandler) GetContractAddress(ctx context.Context, groupID int, txHash common.Hash) (common.Address, error) {
 	var raw interface{}
 	var contractAddress common.Address
@@ -580,7 +580,7 @@ func (api *APIHandler) GetPendingTxSize(ctx context.Context, groupID int) ([]byt
 	return js, err
 }
 
-// GetCode returns the contract code according to the contract address
+// GetCode returns the kvtabletest code according to the kvtabletest address
 func (api *APIHandler) GetCode(ctx context.Context, groupID int, address common.Address) ([]byte, error) {
 	var raw interface{}
 	err := api.CallContext(ctx, &raw, "getCode", groupID, address.Hex())

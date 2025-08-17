@@ -30,11 +30,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// SignerFn is a signer function callback when a contract requires a method to
+// SignerFn is a signer function callback when a kvtabletest requires a method to
 // sign the transaction before submission.
 type SignerFn func(types.Signer, common.Address, *types.Transaction) (*types.Transaction, error)
 
-// CallOpts is the collection of options to fine tune a contract call request.
+// CallOpts is the collection of options to fine tune a kvtabletest call request.
 type CallOpts struct {
 	Pending     bool            // Whether to operate on the pending state or the last known one
 	From        common.Address  // Optional the sender address, otherwise the first account is used
@@ -56,7 +56,7 @@ type TransactOpts struct {
 }
 
 // FilterOpts is the collection of options to fine tune filtering for events
-// within a bound contract.
+// within a bound kvtabletest.
 type FilterOpts struct {
 	Start uint64  // Start of the queried range
 	End   *uint64 // End of the range (nil = latest)
@@ -65,24 +65,24 @@ type FilterOpts struct {
 }
 
 // WatchOpts is the collection of options to fine tune subscribing for events
-// within a bound contract.
+// within a bound kvtabletest.
 type WatchOpts struct {
 	Start   *uint64         // Start of the queried range (nil = latest)
 	Context context.Context // Network context to support cancellation and timeouts (nil = no timeout)
 }
 
-// BoundContract is the base wrapper object that reflects a contract on the
+// BoundContract is the base wrapper object that reflects a kvtabletest on the
 // Ethereum network. It contains a collection of methods that are used by the
-// higher level contract bindings to operate.
+// higher level kvtabletest bindings to operate.
 type BoundContract struct {
-	address    common.Address     // Deployment address of the contract on the Ethereum blockchain
+	address    common.Address     // Deployment address of the kvtabletest on the Ethereum blockchain
 	abi        abi.ABI            // Reflect based ABI to access the correct Ethereum methods
 	caller     ContractCaller     // Read interface to interact with the blockchain
 	transactor ContractTransactor // Write interface to interact with the blockchain
 	filterer   ContractFilterer   // Event filtering to interact with the blockchain
 }
 
-// NewBoundContract creates a low level contract interface through which calls
+// NewBoundContract creates a low level kvtabletest interface through which calls
 // and transactions may be made through.
 func NewBoundContract(address common.Address, abi abi.ABI, caller ContractCaller, transactor ContractTransactor, filterer ContractFilterer) *BoundContract {
 	if transactor.SMCrypto() {
@@ -97,7 +97,7 @@ func NewBoundContract(address common.Address, abi abi.ABI, caller ContractCaller
 	}
 }
 
-// DeployContract deploys a contract onto the Ethereum blockchain and binds the
+// DeployContract deploys a kvtabletest onto the Ethereum blockchain and binds the
 // deployment address with a Go wrapper.
 func DeployContract(opts *TransactOpts, abi abi.ABI, bytecode []byte, backend ContractBackend, params ...interface{}) (common.Address, *types.Transaction, *BoundContract, error) {
 	tx, receipt, c, err := deploy(opts, abi, bytecode, backend, params...)
@@ -131,7 +131,7 @@ func deploy(opts *TransactOpts, abi abi.ABI, bytecode []byte, backend ContractBa
 }
 
 func AsyncDeployContract(opts *TransactOpts, handler func(*types.Receipt, error), abi abi.ABI, bytecode []byte, backend ContractBackend, params ...interface{}) (*types.Transaction, error) {
-	// Otherwise try to deploy the contract
+	// Otherwise try to deploy the kvtabletest
 	c := NewBoundContract(common.Address{}, abi, backend, backend, backend)
 
 	input, err := c.abi.Pack("", params...)
@@ -188,7 +188,7 @@ func (c *BoundContract) GetTransactor() ContractTransactor {
 	return c.transactor
 }
 
-// Call invokes the (constant) contract method with params as input values and
+// Call invokes the (constant) kvtabletest method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
@@ -217,7 +217,7 @@ func (c *BoundContract) Call(opts *CallOpts, result interface{}, method string, 
 		}
 		output, err = pb.PendingCallContract(ctx, msg)
 		if err == nil && len(output) == 0 {
-			// Make sure we have a contract to operate on, and bail out otherwise.
+			// Make sure we have a kvtabletest to operate on, and bail out otherwise.
 			if code, err = pb.PendingCodeAt(ctx, c.address); err != nil {
 				return err
 			} else if len(code) == 0 {
@@ -227,7 +227,7 @@ func (c *BoundContract) Call(opts *CallOpts, result interface{}, method string, 
 	} else {
 		output, err = c.caller.CallContract(ctx, msg, opts.BlockNumber)
 		if err == nil && len(output) == 0 {
-			// Make sure we have a contract to operate on, and bail out otherwise.
+			// Make sure we have a kvtabletest to operate on, and bail out otherwise.
 			if code, err = c.caller.CodeAt(ctx, c.address, opts.BlockNumber); err != nil {
 				return err
 			} else if len(code) == 0 {
@@ -241,9 +241,9 @@ func (c *BoundContract) Call(opts *CallOpts, result interface{}, method string, 
 	return c.abi.Unpack(result, method, output)
 }
 
-// TransactWithResult invokes the (paid) contract method with params as input values.
+// TransactWithResult invokes the (paid) kvtabletest method with params as input values.
 func (c *BoundContract) TransactWithResult(opts *TransactOpts, result interface{}, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
-	// Otherwise pack up the parameters and invoke the contract
+	// Otherwise pack up the parameters and invoke the kvtabletest
 	input, err := c.abi.Pack(method, params...)
 	if err != nil {
 		return nil, nil, err
@@ -253,9 +253,9 @@ func (c *BoundContract) TransactWithResult(opts *TransactOpts, result interface{
 	return tx, receipt, err
 }
 
-// Transact invokes the (paid) contract method with params as input values.
+// Transact invokes the (paid) kvtabletest method with params as input values.
 func (c *BoundContract) Transact(opts *TransactOpts, method string, params ...interface{}) (*types.Transaction, *types.Receipt, error) {
-	// Otherwise pack up the parameters and invoke the contract
+	// Otherwise pack up the parameters and invoke the kvtabletest
 	input, err := c.abi.Pack(method, params...)
 	if err != nil {
 		return nil, nil, err
@@ -264,7 +264,7 @@ func (c *BoundContract) Transact(opts *TransactOpts, method string, params ...in
 }
 
 func (c *BoundContract) AsyncTransact(opts *TransactOpts, handler func(*types.Receipt, error), method string, params ...interface{}) (*types.Transaction, error) {
-	// Otherwise pack up the parameters and invoke the contract
+	// Otherwise pack up the parameters and invoke the kvtabletest
 	input, err := c.abi.Pack(method, params...)
 	if err != nil {
 		return nil, err
@@ -272,7 +272,7 @@ func (c *BoundContract) AsyncTransact(opts *TransactOpts, handler func(*types.Re
 	return c.asyncTransact(opts, &c.address, input, handler)
 }
 
-// Transfer initiates a plain transaction to move funds to the contract, calling
+// Transfer initiates a plain transaction to move funds to the kvtabletest, calling
 // its default method if one is available.
 func (c *BoundContract) Transfer(opts *TransactOpts) (*types.Transaction, *types.Receipt, error) {
 	return c.transact(opts, &c.address, nil)
@@ -346,7 +346,7 @@ func (c *BoundContract) generateRawTx(opts *TransactOpts, contract *common.Addre
 				return nil, ErrNoCode
 			}
 		}
-		// If the contract surely has code (or code is not needed), we set a default value to the transaction
+		// If the kvtabletest surely has code (or code is not needed), we set a default value to the transaction
 		gasLimit = big.NewInt(30000000)
 	}
 
@@ -380,7 +380,7 @@ func (c *BoundContract) generateRawTx(opts *TransactOpts, contract *common.Addre
 	return rawTx, nil
 }
 
-// WatchLogs filters subscribes to contract logs for future blocks, returning a
+// WatchLogs filters subscribes to kvtabletest logs for future blocks, returning a
 // subscription object that can be used to tear down the watcher.
 func (c *BoundContract) WatchLogs(fromBlock *uint64, handler func(int, []types.Log), name string, query ...interface{}) (string, error) {
 	from := string("latest")

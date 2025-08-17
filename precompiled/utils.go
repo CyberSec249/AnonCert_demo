@@ -10,11 +10,11 @@ import (
 )
 
 const (
-	// common precompiled contract error code
+	// common precompiled kvtabletest error code
 	permissionDenied  int64 = -50000
 	tableAlreadyExist int64 = -50001
 
-	// non-precompiled contract error code, only used when logic errors occur
+	// non-precompiled kvtabletest error code, only used when logic errors occur
 	DefaultErrorCode int64 = -1
 
 	bigIntHexStrLen int = 66

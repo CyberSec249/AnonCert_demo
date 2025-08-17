@@ -1137,7 +1137,7 @@ func (hc *channelSession) processMessages() {
 				if err != nil {
 					logrus.Errorf("re-subscriber topic failed, err: %v\n", err)
 				}
-				// resubscribe contract event
+				// resubscribe kvtabletest event
 				for _, eventLogInfo := range hc.eventLogHandlers {
 					err = hc.sendSubscribedEvent(eventLogInfo.params)
 					if err != nil {

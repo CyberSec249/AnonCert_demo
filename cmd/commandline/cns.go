@@ -9,8 +9,8 @@ import (
 
 var queryCNS = &cobra.Command{
 	Use:   "queryCNS",
-	Short: "[name] [version]                   Query CNS information by contract name and contract version",
-	Long: `Query CNS information by contract name and contract version.
+	Short: "[name] [version]                   Query CNS information by kvtabletest name and kvtabletest version",
+	Long: `Query CNS information by kvtabletest name and kvtabletest version.
 Arguments:
           [name]: string
           [version]: string
@@ -45,9 +45,9 @@ For more information please refer:
 			return
 		}
 		if len(args) == 1 && len(infos) == 0 {
-			fmt.Printf("contract %v is not existed\n", args[0])
+			fmt.Printf("kvtabletest %v is not existed\n", args[0])
 		} else if len(args) == 2 && len(infos) == 0 {
-			fmt.Printf("contract %v, version %v is not existed\n", args[0], args[1])
+			fmt.Printf("kvtabletest %v, version %v is not existed\n", args[0], args[1])
 		}
 		// abi info is not printed
 		for i := 0; i < len(infos); i++ {
@@ -58,8 +58,8 @@ For more information please refer:
 
 var getAddressByContractNameAndVersion = &cobra.Command{
 	Use:   "getAddressByContractNameAndVersion",
-	Short: "[name] [version]                   Get address by contract name and version",
-	Long: `Get address by contract name and version.
+	Short: "[name] [version]                   Get address by kvtabletest name and version",
+	Long: `Get address by kvtabletest name and version.
 Arguments:
           [name]: string
           [version]: string

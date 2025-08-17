@@ -45,11 +45,11 @@ var (
 	// Flags needed by abigen
 	abiFlag = cli.StringFlag{
 		Name:  "abi",
-		Usage: "Path to the Ethereum contract ABI json to bind, - for STDIN",
+		Usage: "Path to the Ethereum kvtabletest ABI json to bind, - for STDIN",
 	}
 	binFlag = cli.StringFlag{
 		Name:  "bin",
-		Usage: "Path to the Ethereum contract bytecode (generate deploy method)",
+		Usage: "Path to the Ethereum kvtabletest bytecode (generate deploy method)",
 	}
 	typeFlag = cli.StringFlag{
 		Name:  "type",
@@ -61,7 +61,7 @@ var (
 	}
 	solFlag = cli.StringFlag{
 		Name:  "sol",
-		Usage: "Path to the Ethereum contract Solidity source to build and bind",
+		Usage: "Path to the Ethereum kvtabletest Solidity source to build and bind",
 	}
 	solcFlag = cli.StringFlag{
 		Name:  "solc",
@@ -70,7 +70,7 @@ var (
 	}
 	vyFlag = cli.StringFlag{
 		Name:  "vy",
-		Usage: "Path to the Ethereum contract Vyper source to build and bind",
+		Usage: "Path to the Ethereum kvtabletest Vyper source to build and bind",
 	}
 	vyperFlag = cli.StringFlag{
 		Name:  "vyper",
@@ -129,7 +129,7 @@ func init() {
 
 func abigen(c *cli.Context) error {
 	utils.CheckExclusive(c, abiFlag, jsonFlag, solFlag, vyFlag) // Only one source can be selected.
-	if c.GlobalString(pkgFlag.Name) == "" && c.GlobalString(langFlag.Name) != "objc"{
+	if c.GlobalString(pkgFlag.Name) == "" && c.GlobalString(langFlag.Name) != "objc" {
 		utils.Fatalf("No destination package specified (--pkg)")
 	}
 	var lang bind.Lang
@@ -198,12 +198,12 @@ func abigen(c *cli.Context) error {
 		case c.GlobalIsSet(solFlag.Name):
 			contracts, err = compiler.CompileSolidity(c.GlobalString(solcFlag.Name), c.GlobalString(solFlag.Name))
 			if err != nil {
-				utils.Fatalf("Failed to build Solidity contract: %v", err)
+				utils.Fatalf("Failed to build Solidity kvtabletest: %v", err)
 			}
 		case c.GlobalIsSet(vyFlag.Name):
 			output, err := compiler.CompileVyper(c.GlobalString(vyperFlag.Name), c.GlobalString(vyFlag.Name))
 			if err != nil {
-				utils.Fatalf("Failed to build Vyper contract: %v", err)
+				utils.Fatalf("Failed to build Vyper kvtabletest: %v", err)
 			}
 			contracts = make(map[string]*compiler.Contract)
 			for n, contract := range output {
@@ -224,10 +224,10 @@ func abigen(c *cli.Context) error {
 			}
 			contracts, err = compiler.ParseCombinedJSON(jsonOutput, "", "", "", "")
 			if err != nil {
-				utils.Fatalf("Failed to read contract information from json output: %v", err)
+				utils.Fatalf("Failed to read kvtabletest information from json output: %v", err)
 			}
 		}
-		// Gather all non-excluded contract for binding
+		// Gather all non-excluded kvtabletest for binding
 		for name, contract := range contracts {
 			if exclude[strings.ToLower(name)] {
 				continue
@@ -262,7 +262,7 @@ func abigen(c *cli.Context) error {
 			aliases[match[1]] = match[2]
 		}
 	}
-	// Generate the contract binding
+	// Generate the kvtabletest binding
 	code, err := bind.Bind(types, abis, bins, sigs, c.GlobalString(pkgFlag.Name), lang, libs, aliases, smcrypto)
 	if err != nil {
 		utils.Fatalf("Failed to generate ABI binding: %v", err)

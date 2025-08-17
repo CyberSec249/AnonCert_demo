@@ -52,11 +52,11 @@ func WaitMined(ctx context.Context, b DeployBackend, tx *types.Transaction) (*ty
 	}
 }
 
-// WaitDeployed waits for a contract deployment transaction and returns the on-chain
-// contract address when it is mined. It stops waiting when ctx is canceled.
+// WaitDeployed waits for a kvtabletest deployment transaction and returns the on-chain
+// kvtabletest address when it is mined. It stops waiting when ctx is canceled.
 func WaitDeployed(ctx context.Context, b DeployBackend, tx *types.Transaction) (common.Address, error) {
 	if tx.To() != nil {
-		return common.Address{}, fmt.Errorf("tx is not contract creation")
+		return common.Address{}, fmt.Errorf("tx is not kvtabletest creation")
 	}
 	receipt, err := WaitMined(ctx, b, tx)
 	if err != nil {

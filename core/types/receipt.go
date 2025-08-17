@@ -147,7 +147,7 @@ func (r *Receipt) GetGasUsed() string {
 	return r.GasUsed
 }
 
-// GetContractAddress returns the contract address
+// GetContractAddress returns the kvtabletest address
 func (r *Receipt) GetContractAddress() common.Address {
 	return r.ContractAddress
 }

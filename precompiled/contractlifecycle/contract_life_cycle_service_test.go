@@ -43,11 +43,11 @@ func getService(t *testing.T) {
 
 func deployHelloWorldContract(t *testing.T) {
 	c := getClient(t)
-	address, tx, instance, err := helloworld.DeployHelloWorld(c.GetTransactOpts(), c) // deploy contract
+	address, tx, instance, err := helloworld.DeployHelloWorld(c.GetTransactOpts(), c) // deploy kvtabletest
 	if err != nil {
-		t.Fatalf("deploy HelloWorld contract failed：%v", err)
+		t.Fatalf("deploy HelloWorld kvtabletest failed：%v", err)
 	}
-	t.Logf("the address of contract: %v", address.Hex())
+	t.Logf("the address of kvtabletest: %v", address.Hex())
 	t.Logf("the hash of transaction: %v", tx.Hash().Hex())
 	_ = instance
 	contractAddress = address.Hex()
@@ -98,8 +98,8 @@ func TestGetStatus(t *testing.T) {
 	if err != nil {
 		t.Fatalf("TestGetStatus failed: %v", err)
 	}
-	if num != 0 && message != "The contract is available." {
-		t.Fatalf("TestGetStatus failed, the result \"%v\" and \"%v\" is inconsistent with \"0\" and \"The contract is available.\"", num, message)
+	if num != 0 && message != "The kvtabletest is available." {
+		t.Fatalf("TestGetStatus failed, the result \"%v\" and \"%v\" is inconsistent with \"0\" and \"The kvtabletest is available.\"", num, message)
 	}
 	t.Logf("TestGetStatus, num: %v, message: %v", num, message)
 }

@@ -25,13 +25,13 @@ func main() {
 		logrus.Fatal(err)
 	}
 
-	// deploy contract
-	fmt.Println("-------------------starting deploy contract-----------------------")
+	// deploy kvtabletest
+	fmt.Println("-------------------starting deploy kvtabletest-----------------------")
 	address, tx, instance, err := kvtable.DeployKVTableTest(client.GetTransactOpts(), client)
 	if err != nil {
 		logrus.Fatal(err)
 	}
-	fmt.Println("contract address: ", address.Hex()) // the address should be saved
+	fmt.Println("kvtabletest address: ", address.Hex()) // the address should be saved
 	fmt.Println("transaction hash: ", tx.Hash().Hex())
 	_ = instance
 

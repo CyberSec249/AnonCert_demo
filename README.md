@@ -212,58 +212,58 @@ import (
 )
 
 func main(){
-	configs, err := conf.ParseConfigFile("config.toml")
-	if err != nil {
-		log.Fatalf("ParseConfigFile failed, err: %v", err)
+	configs, Err := conf.ParseConfigFile("config.toml")
+	if Err != nil {
+		log.Fatalf("ParseConfigFile failed, Err: %v", Err)
 	}
-	client, err := client.Dial(&configs[0])
-	if err != nil {
-		log.Fatal(err)
+	client, Err := client.Dial(&configs[0])
+	if Err != nil {
+		log.Fatal(Err)
 	}
 	input := "Store deployment 1.0"
-	address, tx, instance, err := store.DeployStore(client.GetTransactOpts(), client, input)
-	if err != nil {
-		log.Fatal(err)
+	address, tx, instance, Err := store.DeployStore(client.GetTransactOpts(), client, input)
+	if Err != nil {
+		log.Fatal(Err)
 	}
-	fmt.Println("contract address: ", address.Hex()) // the address should be saved, will use in next example
+	fmt.Println("kvtabletest address: ", address.Hex()) // the address should be saved, will use in next example
 	fmt.Println("transaction hash: ", tx.Hash().Hex())
 
-	// load the contract
-	// contractAddress := common.HexToAddress("contract address in hex String")
-	// instance, err := store.NewStore(contractAddress, client)
-	// if err != nil {
-	// 	log.Fatal(err)
+	// load the kvtabletest
+	// contractAddress := common.HexToAddress("kvtabletest address in hex String")
+	// instance, Err := store.NewStore(contractAddress, client)
+	// if Err != nil {
+	// 	log.Fatal(Err)
 	// }
 
 	fmt.Println("================================")
 	storeSession := &store.StoreSession{Contract: instance, CallOpts: *client.GetCallOpts(), TransactOpts: *client.GetTransactOpts()}
 
-	version, err := storeSession.Version()
-	if err != nil {
-		log.Fatal(err)
+	version, Err := storeSession.Version()
+	if Err != nil {
+		log.Fatal(Err)
 	}
 
 	fmt.Println("version :", version) // "Store deployment 1.0"
 
-	// contract write interface demo
+	// kvtabletest write interface demo
 	fmt.Println("================================")
 	key := [32]byte{}
 	value := [32]byte{}
 	copy(key[:], []byte("foo"))
 	copy(value[:], []byte("bar"))
 
-	tx, receipt, err := storeSession.SetItem(key, value)
-	if err != nil {
-		log.Fatal(err)
+	tx, receipt, Err := storeSession.SetItem(key, value)
+	if Err != nil {
+		log.Fatal(Err)
 	}
 
 	fmt.Printf("tx sent: %s\n", tx.Hash().Hex())
 	fmt.Printf("transaction hash of receipt: %s\n", receipt.GetTransactionHash())
 
 	// read the result
-	result, err := storeSession.Items(key)
-	if err != nil {
-		log.Fatal(err)
+	result, Err := storeSession.Items(key)
+	if Err != nil {
+		log.Fatal(Err)
 	}
 
 	fmt.Println("get item: " + string(result[:])) // "bar"

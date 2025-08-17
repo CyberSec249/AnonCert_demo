@@ -9,13 +9,13 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-// SystemConfigService is a precompile contract service.
+// SystemConfigService is a precompile kvtabletest service.
 type SystemConfigService struct {
 	systemConfig *Config
 	client       *client.Client
 }
 
-// systemConfig precompiled contract error code
+// systemConfig precompiled kvtabletest error code
 const (
 	invalidConfigurationValues int64 = -51300
 )
@@ -46,7 +46,7 @@ func errorCodeToError(errorCode int64) error {
 	return nil
 }
 
-// contract address
+// kvtabletest address
 var systemConfigPrecompileAddress common.Address = common.HexToAddress("0x0000000000000000000000000000000000001000")
 
 // NewSystemConfigService returns ptr of SystemConfigService
