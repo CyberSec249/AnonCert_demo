@@ -26,6 +26,16 @@ const router = createRouter({
       path: '/request',
       name: 'request',
       component: () => import('../views/RequestCert.vue'),
+    },
+    {
+      path: '/ca',
+      name: 'ca',
+      component: () => import('../views/CAView.vue'),
+    },
+    {
+      path: '/query',
+      name: 'query',
+      component: () => import('../views/QueryCert.vue'),
     }
   ],
 })

@@ -77,7 +77,7 @@ func BlockInfoGet() (blockNum string, txNum string, nodeNum string, contractNum 
 	if err != nil {
 		log.Fatal(err)
 	}
-	nodeNum = strconv.FormatInt(int64(len(*peers)), 10)
+	nodeNum = strconv.FormatInt(int64(len(*peers)+1), 10)
 	return
 }
 
