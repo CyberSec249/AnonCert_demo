@@ -7,7 +7,7 @@ type CertItem = {
   publicKey: string
   ca_id: number
   caPublicKey: string
-  status: 'pending' | 'issued' | 'rejected' | 'waitCRT' | 'acceptCRT'
+  status: 'pending' | 'issued' | 'rejected' | 'waitCRT' | 'acceptCRT' | 'revoked'
   description: string
 }
 
@@ -67,7 +67,8 @@ const columns = [
         issued:   { color: 'green',  label: '已签发' },
         rejected: { color: 'red',    label: '已拒绝' },
         waitCRT : {color: 'yellow', label: '已审核，待申请CRT'},
-        acceptCRT : {color: 'blue', label: 'CRT已验证，待签发'}
+        acceptCRT : {color: 'blue', label: 'CRT已验证，待签发'},
+        revoked : {color: 'gray', label: '已撤销'}
       }
       const m = map[text] || { label: String(text) }
       return { children: h(resolveComponent('a-tag'), { color: m.color }, { default: () => m.label }) }

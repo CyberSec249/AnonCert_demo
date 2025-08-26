@@ -27,6 +27,7 @@ type IssueCertListInfo struct {
 	Subject_Status string `json:"subject_status"`
 	Crt_Status     string `json:"crt_status"`
 	IFReject       string `json:"if_reject"`
+	IFRevoked      string `json:"if_revoked"`
 }
 
 // /api/issue/list
@@ -38,7 +39,7 @@ func IssueListHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	rows, err := db.Query(`SELECT request_id, subject_status, crt_status, if_reject FROM issueCertList`)
+	rows, err := db.Query(`SELECT request_id, subject_status, crt_status, if_reject, if_revoked FROM issueCertList`)
 	if err != nil {
 		http.Error(w, "query error: "+err.Error(), http.StatusInternalServerError)
 		return
@@ -48,7 +49,7 @@ func IssueListHandler(w http.ResponseWriter, r *http.Request) {
 	var list []IssueCertListInfo
 	for rows.Next() {
 		var item IssueCertListInfo
-		if err := rows.Scan(&item.Request_ID, &item.Subject_Status, &item.Crt_Status, &item.IFReject); err != nil {
+		if err := rows.Scan(&item.Request_ID, &item.Subject_Status, &item.Crt_Status, &item.IFReject, &item.IFRevoked); err != nil {
 			http.Error(w, "scan error: "+err.Error(), http.StatusInternalServerError)
 			return
 		}

@@ -1,0 +1,48 @@
+import { Modal, Input, message } from 'ant-design-vue'
+import { createVNode, ref } from 'vue'
+
+// —— 撤销证书
+async function handleRevoke(record: CertItem) {
+  const inputValue = ref('') // 绑定唯一解输入框
+
+  Modal.confirm({
+    title: '确认撤销',
+    content: () =>
+      createVNode('div', {}, [
+        createVNode('p', null, `确定要撤销证书 (ID=${record.id}) 吗？`),
+        createVNode(Input, {
+          style: 'margin-top:8px;',
+          placeholder: '请输入唯一解 X',
+          type: 'password',            // 👈 密文显示更安全
+          onInput: (e: any) => {
+            inputValue.value = e.target.value
+          }
+        })
+      ]),
+    okText: '确认',
+    cancelText: '取消',
+    async onOk() {
+      if (!inputValue.value) {
+        message.warning('请输入唯一解 X')
+        return Promise.reject() // 阻止关闭弹窗
+      }
+      try {
+        const res = await fetch('/api/revoke/cert', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: record.id,
+            x: inputValue.value.trim()
+          })
+        })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const data = await res.json()
+        message.success(data?.msg || '证书已撤销')
+        await fetchList()
+      } catch (e) {
+        console.error(e)
+        message.error('撤销失败，请稍后重试')
+      }
+    }
+  })
+}

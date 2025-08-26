@@ -36,6 +36,11 @@ const router = createRouter({
       path: '/query',
       name: 'query',
       component: () => import('../views/QueryCert.vue'),
+    },
+    {
+      path: '/revoke',
+      name: 'revoke',
+      component: () => import('../views/RevokeCert.vue'),
     }
   ],
 })

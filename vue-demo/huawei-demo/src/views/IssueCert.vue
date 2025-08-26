@@ -16,6 +16,7 @@ type IssueItem = {
   subject_status: boolean | number | string
   crt_status: boolean | number | string
   if_reject: boolean | number | string
+  if_revoked: boolean | number | string
 }
 
 const centerCell = () => ({style: {textAlign: 'center'}})
@@ -82,10 +83,6 @@ const columns = [
         )
       }
     },
-    customRender: ({ text }: { text: string }) =>
-        h(resolveComponent('a-tooltip'), { title: text },
-            { default: () => h('span', text) }
-        )
   },
   {
     title: '主体信息',
@@ -158,7 +155,8 @@ const columns = [
       const okSubject = toBool(record.subject_status)
       const okCRT     = toBool(record.crt_status)
       const okReject  = toBool(record.if_reject)
-      const disabled  = !(okSubject && okCRT) || okReject
+      const okRevoked = toBool(record.if_revoked)
+      const disabled  = !(okSubject && okCRT) || okReject || okRevoked
 
       return h('div', { style: 'display:flex; gap:8px; justify-content:center; width:100%;' }, [
         h(

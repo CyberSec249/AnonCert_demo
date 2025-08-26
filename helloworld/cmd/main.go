@@ -40,6 +40,9 @@ func main() {
 	mux.HandleFunc("/api/issue/crt/verify", hellowrold.IssueCRTVerifyHandler)
 	mux.HandleFunc("/api/issue/cert/issuance", hellowrold.IssueCertIssuanceHandler)
 
+	mux.HandleFunc("/api/revoke/list", hellowrold.RevocationListHandler)
+	mux.HandleFunc("/api/revoke/cert", hellowrold.RevocationCertHandler)
+
 	primePool = hellowrold.NewPrimePool()
 	err := primePool.GeneratePrimes(1000, 64) // 生成5个64位的质数
 	if err != nil {
